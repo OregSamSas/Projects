@@ -1,0 +1,441 @@
+<html>
+    <head>
+        <title>Közel a nagy nap!</title>
+        <link rel="icon" href="icon.png">
+        <style>
+            html, body {
+                height: 100vh;
+                margin: 0;
+                max-height: 100%;
+            }
+            
+            html {
+                display: table;
+                margin: auto;
+                color: white
+            }
+            
+            body {
+                width: 100vw;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                flex-direction: column;
+                overflow: hidden;
+                backdrop-filter: blur(4px);
+                background-image: url(background.jpg);
+                background-size: cover;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+            
+            @media (orientation: landscape){
+                #clockface{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: column;
+                    overflow: hidden;
+                    width: 50%;
+                    height: 26vw;
+                }
+                #clockrow{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: row;
+                    overflow: hidden;
+                    width: 100%;
+                    font-size: 5.5vw;
+                }
+                #clock_units{
+                    font-size: 2.5vw;
+                    width: 40%;
+                    -webkit-text-stroke-width: 0.8px;
+                    -webkit-text-stroke-color: black;
+                }
+                #clock_days{
+                    width: 40%;
+                    text-align: right;
+                    -webkit-text-stroke-width: 2px;
+                    -webkit-text-stroke-color: black;
+                }
+                #clock_hours{
+                    width: 40%;
+                    text-align: right;
+                    -webkit-text-stroke-width: 2px;
+                    -webkit-text-stroke-color: black;
+                }
+                #clock_mins{
+                    width: 40%;
+                    text-align: right;
+                    -webkit-text-stroke-width: 2px;
+                    -webkit-text-stroke-color: black;
+                }
+                #clock_secs{
+                    width: 40%;
+                    text-align: right;
+                    -webkit-text-stroke-width: 2px;
+                    -webkit-text-stroke-color: black;
+                }
+
+                #clockface_alter{
+                    display: none;
+                    /* Itt a display, ha keresnéd ^*/
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: column;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 26vw;
+                }
+                #clock_alter_value{
+                    font-size: 10vw;
+                    width: 100%;
+                    text-align: center;
+                    -webkit-text-stroke-width: 3px;
+                    -webkit-text-stroke-color: black;
+                }
+                #clock_alter_unit{
+                    font-size: 4vw;
+                    width: 100%;
+                    text-align: center;
+                    -webkit-text-stroke-width: 1px;
+                    -webkit-text-stroke-color: black;
+                }
+
+                #unit_switch_div{
+                    font-size: 2vw;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: row;
+                    margin: 1vw;
+                }
+
+                /* The switch - the box around the slider */
+                .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 60px;
+                    height: 34px;
+                }
+    
+                /* Hide default HTML checkbox */
+                .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+    
+                /* The slider */
+                .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #ccc;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+    
+                .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 26px;
+                    width: 26px;
+                    left: 4px;
+                    bottom: 4px;
+                    background-color: white;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+    
+                input:checked + .slider {
+                    background-color: lightskyblue;
+                }
+    
+                input:focus + .slider {
+                    box-shadow: 0 0 1px lightskyblue;
+                }
+    
+                input:checked + .slider:before {
+                    -webkit-transform: translateX(26px);
+                    -ms-transform: translateX(26px);
+                    transform: translateX(26px);
+                }
+    
+                  /* Rounded sliders */
+                .slider.round {
+                    border-radius: 34px;
+                }
+    
+                .slider.round:before {
+                    border-radius: 50%;
+                }
+    
+                #progress{
+                    height: 5vw;
+                    width: 85vw;
+                    background-color: gray;
+                    color: black;
+                    border: 4px solid black;
+                }
+                #bar{
+                    height: 100%;
+                    width: 30%;
+                    background-color: lightskyblue;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: column;
+                    font-size: 2vw;
+                }
+                #toptext{
+                    font-size: 2.5vw;
+                    -webkit-text-stroke-width: 0.5px;
+                    -webkit-text-stroke-color: black;
+                }
+            }
+
+            @media (orientation: portrait){
+                #clockface{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: column;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 50%;
+                    margin-top: 50px;
+                    margin-bottom: 50px;
+                }
+                #clockrow{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: row;
+                    overflow: hidden;
+                    width: 100%;
+                    font-size: 10vh;
+                }
+                #clock_units{
+                    font-size: 2.5vw;
+                    width: 40%;
+                    -webkit-text-stroke-width: 0.8px;
+                    -webkit-text-stroke-color: black;
+                }
+                #clock_days{
+                    width: 40%;
+                    text-align: right;
+                    -webkit-text-stroke-width: 2px;
+                    -webkit-text-stroke-color: black;
+                }
+                #clock_hours{
+                    width: 40%;
+                    text-align: right;
+                    -webkit-text-stroke-width: 2px;
+                    -webkit-text-stroke-color: black;
+                }
+                #clock_mins{
+                    width: 40%;
+                    text-align: right;
+                    -webkit-text-stroke-width: 2px;
+                    -webkit-text-stroke-color: black;
+                }
+                #clock_secs{
+                    width: 40%;
+                    text-align: right;
+                    -webkit-text-stroke-width: 2px;
+                    -webkit-text-stroke-color: black;
+                }
+
+                #clockface_alter{
+                    display: none;
+                    /* Itt a display, ha keresnéd ^*/
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: column;
+                    overflow: hidden;
+                    width: 100%;
+                    height: 50%;
+                    margin-top: 50px;
+                    margin-bottom: 50px;
+                }
+                #clock_alter_value{
+                    font-size: 230px;
+                    width: 100%;
+                    text-align: center;
+                }
+                #clock_alter_unit{
+                    font-size: 100px;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                #unit_switch_div{
+                    font-size: 50px;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: row;
+                    margin: 10px;
+                }
+
+                /* The switch - the box around the slider */
+                .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 90px;
+                    height: 51px;
+                }
+    
+                /* Hide default HTML checkbox */
+                .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                }
+    
+                /* The slider */
+                .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #ccc;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+    
+                .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 39px;
+                    width: 39px;
+                    left: 6px;
+                    bottom: 6px;
+                    background-color: white;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                }
+    
+                input:checked + .slider {
+                    background-color: lightskyblue;
+                }
+    
+                input:focus + .slider {
+                    box-shadow: 0 0 1px lightskyblue;
+                }
+    
+                input:checked + .slider:before {
+                    -webkit-transform: translateX(39px);
+                    -ms-transform: translateX(39px);
+                    transform: translateX(39px);
+                }
+    
+                  /* Rounded sliders */
+                .slider.round {
+                    border-radius: 51px;
+                }
+    
+                .slider.round:before {
+                    border-radius: 50%;
+                }
+    
+                #progress{
+                    height: 15vw;
+                    width: 85vw;
+                    background-color: gray;
+                    margin-top: 20px;
+                    color: black;
+                    border: 4px solid black;
+                }
+                #bar{
+                    height: 100%;
+                    width: 30%;
+                    background-color: lightskyblue;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    flex-direction: column;
+                    font-size: 80px;
+                }
+                #toptext{
+                    font-size: 50px;
+                    text-align: center;
+                    -webkit-text-stroke-width: 0.5px;
+                    -webkit-text-stroke-color: black;
+                }
+            }
+            
+        </style>
+        <script src="font.js"></script>
+    </head>
+    <body>
+        <div id="toptext">Születésnapodig hátra van: </div><br>
+        
+        <div id="clockface">
+            <div id="clockrow">
+                <div id="clock_days">XX</div>
+                <div id="clock_units"> nap,</div>
+            </div>
+            <div id="clockrow">
+                <div id="clock_hours">XX</div>
+                <div id="clock_units"> óra,</div>
+            </div>
+            <div id="clockrow">
+                <div id="clock_mins">XX</div>
+                <div id="clock_units"> perc,</div>
+            </div>
+            <div id="clockrow">
+                <div id="clock_secs">XX</div>
+                <div id="clock_units"> másodperc</div>
+            </div>
+        </div>
+
+        <div id="clockface_alter">
+            <div id="clock_alter_value">XX</div>
+            <div id="clock_alter_unit"> másodperc</div>
+        </div>
+
+        <div id="unit_switch_div">
+            Egységes mértékegység  
+            <label class="switch" style="margin-left: 2vw;">
+                <input type="checkbox" id="unitswitch" onclick="switchOnclickHandler()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <br>
+        <div id="progress">
+            <div id="bar">Calculating...</div>
+        </div>
+        <script src="style.js"></script>
+    </body>
+</html>
