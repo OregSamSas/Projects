@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Countdown timer</title>
+        <link rel="icon" href="assets/icons/icon.png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="switch.css">
+        <link rel="stylesheet" href="dropdown.css">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="toptext">Time left:</div><br>
+        
+        <div id="clockface">
+            <div id="clockrow">
+                <div id="clock_days">XX</div>
+                <div class="clock_units" id="clock_units_days"> days,</div>
+            </div>
+            <div id="clockrow">
+                <div id="clock_hours">XX</div>
+                <div class="clock_units" id="clock_units_hours"> hours,</div>
+            </div>
+            <div id="clockrow">
+                <div id="clock_mins">XX</div>
+                <div class="clock_units" id="clock_units_mins"> minutes,</div>
+            </div>
+            <div id="clockrow">
+                <div id="clock_secs">XX</div>
+                <div class="clock_units" id="clock_units_secs"> seconds</div>
+            </div>
+        </div>
+
+        <div id="clockface_alter">
+            <div id="clock_alter_value">XX</div>
+            <!--<div class="dropdown">
+                <div id="clock_alter_unit">seconds</div>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>-->
+            <select id="clock_alter_unit" onchange="refresh()">
+                <option value="miliseconds">miliseconds</option>
+                <option value="seconds">seconds</option>
+                <option value="minutes">minutes</option>
+                <option value="hours">hours</option>
+                <option value="days">days</option>
+                <option value="weeks">weeks</option>
+                <option value="months">months</option>
+                <option value="years">years</option>
+                <option value="percent">percent</option>
+            </select>
+        </div>
+
+        <div id="unit_switch_div">
+            <div id="unit_switch_div_text">Single unit mode</div>  
+            <label class="switch" style="margin-left: 2vw;">
+                <input type="checkbox" id="unitswitch" onclick="switchOnclickHandler()">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <br>
+        <div id="progress">
+            <div id="bar">Calculating...</div>
+        </div>
+
+        <script src="language.js"></script>
+        <script src="parameters.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
