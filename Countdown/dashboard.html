@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create Countdown Timer</title>
+        <link rel="icon" href="assets/icons/hourglass.png">
+        <meta charset="UTF-8">
+        <style>
+            body{
+                margin: 0;
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                backdrop-filter: blur(5px);
+                background: url(assets/backgrounds/background.jpg) no-repeat center center fixed; 
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Create custom countdown clock</h1>
+        
+        <input id="startDateSelect" type="date" onchange="startChangeHandler()">
+        <input id="startTimeSelect" type="time" onchange="startChangeHandler()">
+        <br>
+        <input id="endDateSelect" type="date" onchange="endChangeHandler()">
+        <input id="endTimeSelect" type="time" onchange="endChangeHandler()">
+        <br>
+        <select id="unitSelect" onchange="unitChangeHandler()">
+            <option value="miliseconds">miliseconds</option>
+            <option value="seconds">seconds</option>
+            <option value="minutes">minutes</option>
+            <option value="hours">hours</option>
+            <option value="days">days</option>
+            <option value="weeks">weeks</option>
+            <option value="months">months</option>
+            <option value="years">years</option>
+            <option value="percent">percent</option>
+        </select>
+        <br>
+        <select id="lanSelect" onchange="lanChangeHandler()">
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+            <option value="hu">Magyar</option>
+            <option value="zh">中文</option>
+        </select>
+
+        <form action="../Countdown/countdown.html" target="_blank">
+            <input style="display: none;" type="text" id="startQuery" name="start"> 
+            <input style="display: none;" type="text" id="endQuery" name="end"> 
+            <input style="display: none;" type="text" id="unitQuery" name="unit"> 
+            <input style="display: none;" type="text" id="lanQuery" name="lan"> 
+            <input type="submit" value="Create countdown">
+        </form>
+
+        <script>
+            function startChangeHandler(){
+                document.getElementById("startQuery").value = String(Date.parse(document.getElementById("startDateSelect").value + " " + document.getElementById("startTimeSelect").value)/1000)
+            }
+            function endChangeHandler(){
+                document.getElementById("endQuery").value = String(Date.parse(document.getElementById("endDateSelect").value + " " + document.getElementById("endTimeSelect").value)/1000)
+            }
+            function unitChangeHandler(){
+                document.getElementById("unitQuery").value = document.getElementById("unitSelect").value
+            }
+            function lanChangeHandler(){
+                document.getElementById("lanQuery").value = document.getElementById("lanSelect").value
+            }
+
+            function copyCountdown(){
+            }
+        </script>
+    </body>
+</html>

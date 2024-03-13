@@ -1,7 +1,10 @@
 html, body {
     height: 100vh;
-    margin: 0;
     max-height: 100%;
+    margin: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
 html {
@@ -20,10 +23,11 @@ body {
     flex-direction: column;
     overflow: hidden;
     backdrop-filter: blur(4px);
-    background-image: url(assets/backgrounds/background.jpg);
+    background: url(assets/backgrounds/background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 
 @media (orientation: landscape){
