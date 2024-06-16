@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magyar Memoriterek</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="poem-container">
+            <div class="poem-aligner">
+                <div id="poem-container"></div>
+            </div>
+        </div>
+        <div class="quiz-container">
+            <form id="quiz-form" autocomplete="off">
+                <div id="answer-boxes">
+                    <div class="input-group">
+                        <label for="title">Cím:</label>
+                        <input type="text" id="title-input" name="title" style="display: none;">
+                        <select id="title-dropdown" name="title"></select>
+                    </div>
+                    <div class="input-group">
+                        <label for="author">Szerző:</label>
+                        <input type="text" id="author-input" name="author" style="display: none;">
+                        <select id="author-dropdown" name="author"></select>
+                    </div>
+                </div>
+                <div class="input-group" id="next-verse-group" style="display: none;">
+                    <label for="next-verse" id="next-verse-label">Következő versszak:</label>
+                    <textarea id="next-verse" name="next-verse"></textarea>
+                </div>
+                <button type="submit" id="submit-button">Ellenőrzés</button>
+                <button type="button" id="next-button" style="display: none;">Következő</button>
+                <div id="feedback"></div>
+            </form>
+            <div id="mode-toggle">
+                <label for="typing-mode">Gépelés</label>
+                <input type="checkbox" id="typing-mode">
+            </div>
+            <div id="recite-mode-toggle">
+                <label for="recite-mode">Memoriter</label>
+                <input type="checkbox" id="recite-mode" checked>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

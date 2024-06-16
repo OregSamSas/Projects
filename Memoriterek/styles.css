@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-size: 20px;
+}
+
+.container {
+    position: relative; /* Position context for absolute positioning */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%; /* Adjusted width to 90% */
+    height: 80vh; /* Increased height to 80vh */
+    max-width: 1000px; /* Increased maximum width */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.poem-container {
+    position: relative;
+    width: 55%;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poem-aligner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.poem-container #poem-container {
+    white-space: pre-wrap; /* Preserve formatting and line breaks */
+    text-align: left; /* Align poem to the left */
+}
+
+.quiz-container {
+    width: 45%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+#mode-toggle, #recite-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#recite-mode-toggle {
+    top: 50px; /* Position it 50px below the typing mode toggle */
+}
+
+#quiz-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Full width for form */
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 300px;
+}
+
+.input-group label {
+    margin-right: 10px;
+    width: 30%;
+    text-align: right;
+}
+
+input[type="text"], select {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%; /* Full width */
+    max-width: 100%; /* Maximum width */
+}
+
+#next-verse {
+    height: 150px;
+    width: 100%;
+    margin-top: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#submit-button, #next-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#submit-button:hover, #next-button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+#next-button {
+    background-color: #4169E1; /* Darker blue */
+    display: none; /* Hidden by default */
+}
+
+#next-button:hover {
+    background-color: #355fcd; /* Darker shade on hover */
+}
+
+#feedback {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: black; /* Default color */
+}
+
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Define the specific background colors for correct and incorrect answers */
+select.correct-answer {
+    background-color: lightgreen;
+}
+
+select.incorrect-answer {
+    background-color: lightcoral;
+}
