@@ -1,0 +1,231 @@
+{
+    "poems": [
+        {
+            "title":"Gyűlölöm azt",
+            "author":"Anakreón",
+            "recite":true,
+            "verses":[
+                "Gyűlölöm azt, aki telt kupa mellett, bort iszogatván,\nháborut emleget és lélekölő viadalt.\nS kedvelem azt, aki bölcs és Aphrodité meg a Múzsák\nszép adományairól zengve szeretni tanít."
+            ]
+        },
+        {
+            "title":"Gyűlölök és szeretek",
+            "author":"Catullus",
+            "recite":true,
+            "verses":[
+                "Gyűlölök és szeretek. Tán kérded, mért teszem én azt.\nNem tudom, ám érzem, s szerteszakít ez a kín."
+            ]
+        },
+        {
+            "title":"Halotti beszéd",
+            "author":"ismeretlen középkori pap",
+            "recite":false,
+            "verses":[
+                "Látjátok, feleim, szemetekkel,\nmik vagyunk: íme, por és hamu\nvagyunk. Mennyi malasztban\nteremté kezdetben [Úr] mi osünket,\nÁdámot, és adta vala neki\nparadicsomot házzá. És mind[en]\nparadicsomban való gyümölcsök-\ntol monda neki élnie. Csupán\ntiltá ot egy fa gyümölcsétol.",
+                "De mondá neki, mért ne\nennék: „Bizony, [a]ki napon eendel\naz[on] gyümölcstol, halálnak\nhalálával halsz\". Hallá\nholtát teremto Istentol, de\nfeledé. Engede ördög inteté-\nnek, és evék az[on] tiltott\ngyümölcstol, és az[on] gyümölcs-\nben halált evék. És az[on] gyü-\nmölcsnek oly keseru vala\nleve, hogy torkát megszakasztja\nvala. Nem csupán magának, de\nmind[en] o fajának halált evék.",
+                "Haraguvék Isten, és veté ot ez\nmunkás világba: és lon\nhalálnak és pokolnak martaléka,\nés mind[en] o nemének. Kik azok?\nmi vagyunk. [A]hogy is ti\nlátjátok szemetekkel: Bizony,\negy ember sem kerülheti el ez\nvermet, bizony, mind ahhoz járó\nvagyunk. Imádjuk Urunk Isten\nkegyelmét e lélekért, hogy\nirgalmazzon oneki, és kegyelmez-\nzen, és bocsássa mind[en] o\nbunét!",
+                "É imádjuk Szent\nAsszony Máriát és Boldog Mihály\narkangyalt és mind[en] angyalokat,\nhogy imádjanak érte! És\nimádjuk Szent Péter urat,\nakinek ad[at]ott hatalom oldania\nés kötnie, hogy oldja mind[en]\no bunét. ",
+                "És imádjuk mind[en]\nszenteket, hogy legyenek neki\nsegedelmére Urunk színe elott, hogy\nIsten o imádságuk miá bo-\ncsássa o bunét! És szabadítsa\not ördög üldözésétol és pokol\nkínzásától, és vezesse ot pa-\nradicsom nyugalmába, és adjon\nneki mennyországba utat,\nés mind[en] jóban részt! És\nkiáltsátok Urunkhoz háromszor:\nkyrie eleison!",
+                "Szerelmes Testvéreim! imádjunk\ne szegény ember lelkéért,\n[a]kit Úr e napon e hamis világ\ntömlöcébol mente, [a]kinek e\nnapon testét temtejük, hogy\nÚr ot kegyelmével Ábrahám,\nIzsák, Jákob kebelében helyezze,\nhogy bírságnap jutva mind[en] o\nszentei és kiválasztottai között\njobb felol iktatnia élessze\nfel ot! És tibennetek. Clamate\nter: kyrie eleison!"
+            ]
+        },
+        {
+            "title":"Ómagyar Mária-siralom",
+            "author":"ismeretlen középkori pap",
+            "recite":false,
+            "verses":[
+                "Volék sirolm tudotlon.\nSirolmol sepedik,\nbuol oszuk, epedek,",
+                "Választ világumtuul,\nzsidou fiodumtuul,\nézes ürümemtüül.",
+                "Ó én ézes urodum,\neggyen-igy fiodum,\nsírou anyát teküncsed,\nbuabeleül kinyuhhad!",
+                "Szemem künyüel árad,\njunhum buol fárad.\nTe vérüd hullottya\nén junhum olélottya.",
+                "Világ világa,\nvirágnak virága,\nkeserüen kinzatul,\nvos szegekkel veretül!",
+                "Uh nekem, én fiom,\nézes mézüül,\nszégyenül szépségüd,\nvírüd hioll vizeül.",
+                "Sirolmom, fuhászatum\ntertetik kiül,\nén junhumnok bel bua,\nki sumha nim hiül.",
+                "Végy halál engümet,\neggyedűm íllyen,\nmaraggyun urodum,\nkit világ féllyen!",
+                "Ó, igoz Simeonnok\nbezzeg szovo ére:\nén érzem ez bútürüt,\nkit níha egíre.",
+                "Tüüled válnum;\nde nüm valállal,\nhul igy kinzassál,\nfiom, halállal!",
+                "Zsidou, mit téssz türvéntelen,\nFiom mert hol biüntelen.\nFugvá, husztuzvá,\nüklelvé, ketvé ülüd!",
+                "Kegyüggyetük fiomnok,\nne légy kegyülm mogomnok!\nOvogy halál kináal\nanyát ézes fiáal\negyembelű üllyétük!"
+            ]
+        },
+        {
+            "title":"Pannónia Dicsérete",
+            "author":"Janus Pannonius",
+            "recite":true,
+            "verses":[
+                "Eddig Itália földjén termettek csak a könyvek,\nS most Pannónia is ontja a szép dalokat.\nSokra becsülnek már, a hazám is büszke lehet rám,\nSzellemem egyre dicsőbb, általa híres e föld!"
+            ]
+        },
+        {
+            "title":"Egy katonaének",
+            "author":"Balassi Bálint",
+            "recite":false,
+            "verses":[
+                "Vitézek, mi lehet ez széles föld felett\nszebb dolog az végeknél?\nHolott kikeletkor az sok szép madár szól,\nkivel ember ugyan él;\nMező jó illatot, az ég szép harmatot\nád, ki kedves mindennél.",
+                "Ellenség hírére vitézeknek szíve\ngyakorta ott felbuzdul,\nSőt azon kívül is, csak jó kedvébűl is\nvitéz próbálni indul,\nHolott sebesedik, öl, fog, vitézkedik,\nhomlokán vér lecsordul.",
+                "Veres zászlók alatt lobogós kopiát\nvitézek ott viselik,\nRoppant sereg előtt távol az sík mezőt\nszéllyel nyargalják, nézik;\nAz párduckápákkal, fényes sisakokkal,\nforgókkal szép mindenik.",
+                "Jó szerecsen lovak alattok ugrálnak,\nhogyha trombita riadt,\nKöztök ki strázsát áll, ki lováról leszáll,\nnyugszik reggel, hol virradt,\nMidőn éjten-éjjel csataviseléssel\nmindenik lankadt s fáradt.",
+                "Az jó hírért, névért s az szép tisztességért\nők mindent hátra hadnak,\nEmberségről példát, vitézségről formát\nmindeneknek ők adnak,\nMidőn, mint jó rárók, mezőn széllyel járók,\nvagdalkoznak, futtatnak.",
+                "Ellenséget látván örömmel kiáltván\nők kopiákot törnek,\nS ha súlyosan vagyon az dolog harcokon,\nszólítatlan megtérnek,\nSok vérben fertezvén arcul reá térvén\nűzőt sokszor megvernek.",
+                "Az nagy széles mező, az szép liget, erdő\nsétáló palotájok,\nAz utaknak lese, kemény harcok helye\ntanuló oskolájok,\nCsatán való éhség, szomjúság, nagy hévség\ns fáradtság múlatságok.",
+                "Az éles szablyákban örvendeznek méltán,\nmert ők fejeket szednek,\nViadalhelyeken véresen, sebesen,\nhalva sokan feküsznek,\nSok vad s madár gyomra gyakran koporsója\nvitézül holt testeknek.",
+                "Óh, végbelieknek, ifjú vitézeknek\ndicséretes serege!\nKiknek ez világon szerteszerént vagyon\nmindeneknél jó neve,\nMint sok fát gyümölccsel, sok jó szerencsékkel\náldjon Isten mezőkbe!"
+            ]
+        },
+        {
+            "title":"Adj már csendességet...",
+            "author":"Balassi Bálint",
+            "recite":false,
+            "verses":[
+                "Adj már csendességet, lelki békességet, mennybéli Úr!\nBujdosó elmémet ódd bútól szívemet, kit sok kín fúr!\n\nSok ideje immár, hogy lelkem szomjan vár mentségére,\nŐrizd, ne hadd, ébreszd, haragod ne gerjeszd vesztségére!",
+                "Nem kicsiny munkával, fiad halálával váltottál meg,\nKinek érdeméért most is szükségemet teljesíts meg!\n\nIrgalmad nagysága, nem vétkem rútsága feljebb való,\nIrgalmad végtelen, de bűnöm éktelen s romlást valló.",
+                "Jóvoltod változást, gazdagságod fogyást ereszthet-e?\nEngem, te szolgádat, mint régen sokakat, ébreszthet-e?\n\nNem kell kételkednem, sőt jót reménlenem igéd szerint,\nMegadod kedvessen, mit ígérsz kegyessen hitem szerint,",
+                "Nyisd fel hát karodnak, szentséges markodnak áldott zárját,\nAdd meg életemnek, nyomorult fejemnek letört szárnyát;\n\nRepülvén áldjalak, élvén imádjalak vétek nélkül,\nKit jól gyakorolván, haljak meg nyugodván, bú s kín nélkül!"
+            ]
+        },
+        {
+            "title":"Tartózkodó kérelem",
+            "author":"Csokonai Vitéz Mihály",
+            "recite":true,
+            "verses":[
+                "A hatalmas szerelemnek\n    Megemésztő tüze bánt.\nTe lehetsz írja sebemnek,\n    Gyönyörű kis tulipánt!",
+                "Szemeid szép ragyogása\n    Eleven hajnali tűz,\nAjakid harmatozása\n    Sok ezer gondot elűz.",
+                "Teljesítsd angyali szókkal,\n    Szeretőd amire kért:\nEzer ambrózia csókkal\n    Fizetek válaszodért."
+            ]
+        },
+        {
+            "title":"A Reményhez",
+            "author":"Csokonai Vitéz Mihály",
+            "recite":true,
+            "verses":[
+                "Főldiekkel játszó\n    Égi tűnemény,\nIstenségnek látszó\n    Csalfa, vak Remény!\nKit teremt magának\n    A boldogtalan,\nS mint védangyalának,\n    Bókol úntalan.\nSíma száddal mit kecsegtetsz?\n    Mért nevetsz felém?\nKétes kedvet mért csepegtetsz\n    Még most is belém?\nCsak maradj magadnak!\n    Biztatóm valál;\nHittem szép szavadnak:\n    Mégis megcsalál.",
+                "Kertem nárcisokkal\n    Végig űltetéd;\nCsörgő patakokkal\n    Fáim éltetéd;\nRám ezer virággal\n    Szórtad a tavaszt\nS égi boldogsággal\n    Fűszerezted azt.\nGondolatim minden reggel,\n    Mint a fürge méh,\nRepkedtek a friss meleggel\n    Rózsáim felé.\nEgy híjját esmértem\n    Örömimnek még:\nLilla szívét kértem;\n    S megadá az ég.",
+                "Jaj, de friss rózsáim\n    Elhervadtanak;\nForrásim, zőld fáim\n    Kiszáradtanak;\nTavaszom, vígságom\n    Téli búra vált;\nRégi jó világom\n    Méltatlanra szállt.\nÓh! csak Lillát hagytad volna\n    Csak magát nekem:\nMost panaszra nem hajolna\n    Gyászos énekem.\nKarja közt a búkat\n    Elfelejteném,\nS a gyöngykoszorúkat\n    Nem irígyleném.",
+                "Hagyj el, óh Reménység!\n    Hagyj el engemet;\nMert ez a keménység\n    Úgyis eltemet.\nÉrzem: e kétségbe\n    Volt erőm elhágy,\nFáradt lelkem égbe,\n    Testem főldbe vágy.\nNékem már a rét hímetlen,\n    A mező kisűlt,\nA zengő liget kietlen,\n    A nap éjre dűlt.\nBájoló lágy trillák!\n    Tarka képzetek!\nKedv! Remények! Lillák!\n    Isten véletek!"
+            ]
+        },
+        {
+            "title":"A közelítő tél (1. vsz)",
+            "author":"Berzsenyi Dániel",
+            "recite":true,
+            "verses":[
+                "Hervad már ligetünk, s díszei hullanak,\nTarlott bokrai közt sárga levél zörög.\nNincs rózsás labyrinth, s balzsamos illatok\nKözt nem lengedez a Zephyr."
+            ]
+        },
+        {
+            "title":"A magyarokhoz (I.) (1. vsz)",
+            "author":"Berzsenyi Dániel",
+            "recite":true,
+            "verses":[
+                "Romlásnak indult hajdan erős magyar!\nNem látod, Árpád vére miként fajul?\n    Nem látod a bosszús egeknek\n    Ostorait nyomorult hazádon?"
+            ]
+        },
+        {
+            "title":"Osztályrészem (1. vsz)",
+            "author":"Berzsenyi Dániel",
+            "recite":true,
+            "verses":[
+                "Partra szállottam. Levonom vitorlám.\nA szelek mérgét nemesen kiálltam.\nSok Charybdis közt, sok ezer veszélyben\nIzzada orcám."
+            ]
+        },
+        {
+            "title":"Himnusz",
+            "author":"Kölcsey Ferenc",
+            "recite":true,
+            "verses":[
+                "Isten, áldd meg a magyart\nJó kedvvel, bőséggel,\nNyújts feléje védő kart,\nHa küzd ellenséggel;\nBal sors akit régen tép,\nHozz rá víg esztendőt,\nMegbünhödte már e nép\nA multat s jövendőt!",
+                "Őseinket felhozád\nKárpát szent bércére,\nÁltalad nyert szép hazát\nBendegúznak vére.\nS merre zúgnak habjai\nTiszának, Dunának,\nÁrpád hős magzatjai\nFelvirágozának.",
+                "Értünk Kunság mezein\nÉrt kalászt lengettél,\nTokaj szőlővesszein\nNektárt csepegtettél.\nZászlónk gyakran plántálád\nVad török sáncára,\nS nyögte Mátyás bús hadát\nBécsnek büszke vára.",
+                "Hajh, de bűneink miatt\nGyúlt harag kebledben,\nS elsújtád villámidat\nDörgő fellegedben,\nMost rabló mongol nyilát\nZúgattad felettünk,\nMajd töröktől rabigát\nVállainkra vettünk.",
+                "Hányszor zengett ajkain\nOzman vad népének\nVert hadunk csonthalmain\nGyőzedelmi ének!\nHányszor támadt tenfiad\nSzép hazám kebledre,\nS lettél magzatod miatt\nMagzatod hamvvedre!",
+                "Bújt az üldözött s felé\nKard nyúl barlangjában,\nSzerte nézett s nem lelé\nHonját a hazában,\nBércre hág és völgybe száll,\nBú s kétség mellette,\nVérözön lábainál,\nS lángtenger fölette.",
+                "Vár állott, most kőhalom,\nKedv s öröm röpkedtek,\nHalálhörgés, siralom\nZajlik már helyettek.\nS ah, szabadság nem virúl\nA holtnak véréből,\nKínzó rabság könnye hull\nÁrvánk hő szeméből!",
+                "Szánd meg Isten a magyart\nKit vészek hányának,\nNyújts feléje védő kart\nTengerén kínjának.\nBal sors akit régen tép,\nHozz rá víg esztendőt,\nMegbünhödte már e nép\nA multat s jövendőt!"
+            ]
+        },
+        {
+            "title":"Zrínyi második éneke",
+            "author":"Kölcsey Ferenc",
+            "recite":false,
+            "verses":[
+                "Te lásd meg, ó sors, szenvedő hazámat,\nVérkönnyel ázva nyög feléd!\nMert kánya, kígyó, féreg egyre támad,\nÉs marja, rágja kebelét.\nA méreg ég, és ömlik mély sebére,\nS ő védtelen küzd egyedűl,\nHatalmas, ó légy gyámja, légy vezére,\nVagy itt az óra, s végveszélybe dűl!",
+                "Áldást adék, sok magzatot honodnak,\nMellén kiket táplál vala;\nS másokra vársz, hogy érte vívni fognak?\nÖnnépe nem lesz védfala?\nSzív, lélek el van vesztegetve rátok;\nSzent harcra nyitva várt az út,\nS ti védfalat körűle nem vonátok;\nŐ gyáva fajt szült, s érte sírba jut.",
+                "De szánjad, ó sors, szenvedő hazámat!\nTe rendelél áldást neki:\nS a vad csoport, mely rá dühödve támad,\nKiket nevelt, öngyermeki.\nTaposd el a fajt, rút szennyét nememnek;\nS míg hamvokon majd átok űl,\nAh tartsd meg őt, a hűv anyát, teremnek\nTán jobb fiak, s védvén állják körűl.",
+                "Törvényem él. Hazád őrcsillagzatja\nSzülötti bűnein leszáll;\nSzelíd sugárit többé nem nyugtatja\nAz ősz apák sírhalminál.\nÉs más hon áll a négy folyam partjára,\nMás szózat és más keblü nép;\nS szebb arcot ölt e föld kies határa,\nHogy kedvre gyúl, ki bájkörébe lép."
+            ]
+        },
+        {
+            "title":"Szózat",
+            "author":"Vörösmarty Mihály",
+            "recite":true,
+            "verses":[
+                "Hazádnak rendületlenűl\nLégy híve, oh magyar ;\nBölcsőd az s majdan sírod is,\nMely ápol s eltakar.\n\nA nagy világon e kivűl\nNincsen számodra hely ;\nÁldjon vagy verjen sors keze :\nItt élned, halnod kell.",
+                "Ez a föld, melyen annyiszor\nApáid vére folyt ;\nEz, melyhez minden szent nevet\nEgy ezred év csatolt.\n\nItt küzdtenek honért a hős\nÁrpádnak hadai ;\nItt törtek össze rabigát\nHunyadnak karjai.",
+                "Szabadság! itten hordozák\nVéres zászlóidat,\nS elhulltanak legjobbjaink\nA hosszu harc alatt.\n\nÉs annyi balszerencse közt,\nOly sok viszály után,\nMegfogyva bár, de törve nem,\nÉl nemzet e hazán.",
+                "S népek hazája, nagy világ !\nHozzád bátran kiált :\n\"Egy ezredévnyi szenvedés\nKér éltet vagy halált !\"\n\nAz nem lehet, hogy annyi szív\nHiában onta vért,\nS keservben annyi hű kebel\nSzakadt meg a honért.",
+                "Az nem lehet, hogy ész, erő,\nÉs oly szent akarat\nHiába sorvadozzanak\nEgy átoksúly alatt.\n\nMég jőni kell, még jőni fog\nEgy jobb kor, mely után\nBuzgó imádság epedez\nSzázezrek ajakán.",
+                "Vagy jőni fog, ha jőni kell,\nA nagyszerű halál,\nHol a temetkezés fölött\nEgy ország vérben áll.\n\nS a sírt, hol nemzet sűlyed el,\nNépek veszik körűl,\nS az ember millióinak\nSzemében gyászköny űl.",
+                "Légy híve rendületlenűl\nHazádnak, oh magyar :\nEz éltetőd, s ha elbukál,\nHantjával ez takar.\n\nA nagy világon e kivűl\nNincsen számodra hely ;\nÁldjon vagy verjen sors keze :\nItt élned, halnod kell."
+            ]
+        },
+        {
+            "title":"Gondolatok a könyvtárban",
+            "author":"Vörösmarty Mihály",
+            "recite":false,
+            "verses":[
+                "Hová lépsz most, gondold meg, oh tudós,\nAz emberiségnek elhányt rongyain\nKomor betűkkel, mint a téli éj,\nLeírva áll a rettentő tanulság:",
+                "\"Hogy míg nyomorra milliók születnek,\nNéhány ezernek jutna üdv a földön,\nHa istenésszel, angyal érzelemmel\nHasználni tudnák éltök napjait.\"",
+                "Miért e lom? hogy mint juh a gyepen\nLegeljünk rajta? s léha tudománytól\nZabáltan elhenyéljük a napot?\nAz isten napját! nemzet életét!",
+                "Miért e lom? szagáról ismerem meg\nAz állatember minden bűneit.\nErény van írva e lapon; de egykor\nZsivány ruhája volt. S amott?\nAz ártatlanság boldog napjai\nEgy eltépett szűz gyönge öltönyén,\nVagy egy dühös bujának pongyoláján.\nÉs itt a törvény - véres lázadók\nHamis birák és zsarnokok mezéből\nFehérre mosdott könyvnek lapjain.\nEmitt a gépek s számok titkai!\nDe akik a ruhát elszaggaták\nHogy majd belőle csínos könyv legyen,\nSzámon kivül maradtak: Ixion\nBőszült vihartól űzött kerekén\nÖrvény nyomorban, vég nélkül kerengők.",
+                "Az őrült ágyán bölcs fej álmodik;\nA csillagászat egy vak koldus asszony\nCondráin méri a világokat:\nVilág és vakság egy hitvány lapon!\nKönyv lett a rabnép s gyávák köntöséből\nS most a szabadság és a hősi kor\nBeszéli benne nagy történetét.\nHűség, barátság aljas hitszegők\nGunyáiból készült lapon regél.\nIrtózatos hazudság mindenütt!\nAz írt betűket a sápadt levél\nHalotti képe kárhoztatja el.",
+                "Országok rongya! könyvtár a neved,\nDe hát hol a könyv mely célhoz vezet?\nHol a nagyobb rész boldogsága? - Ment-e\nA könyvek által a világ elébb?\nMent, hogy minél dicsőbbek népei,\nSalakjok annál borzasztóbb legyen,\nS a rongyos ember bőszült kebele\nDögvészt sohajtson a hír nemzetére.",
+                "De hát ledöntsük, amit ezredek\nÉsz napvilága mellett dolgozának?\nA bölcsek és a költők műveit,\nS mit a tapasztalás arany\nBányáiból kifejtett az idő?\nHány fényes lélek tépte el magát,\nVirrasztott a sziv égő romja mellett,\nHogy tévedt, sujtott embertársinak\nIrányt adjon s erőt, vigasztalást.\nAz el nemn ismert érdem hősei,\nKiket - midőn már elhunytak s midőn\nIngyen tehette - csúfos háladattal\nKezdett imádni a galád világ,\nNépboldogító eszmék vértanúi\nŐk mind e többi rongykereskedővel,\nEz únt fejek - s e megkorhadt szivekkel,\nRosz szenvedélyek oktatóival\nŐk mind együtt - a jók a rosz miatt -\nEgy máglya üszkén elhamvadjanak?",
+                "Oh nem, nem! amit mondtam, fájdalom volt,\nHogy annyi elszánt lelkek fáradalma,\nOly fényes elmék a sár fiait\nA sűlyedéstől meg nem mentheték!\nHogy még alig bír a föld egy zugot,\nEgy kis virányt a puszta homokon\nHol legkelendőbb név az emberé,\nHol a teremtés ősi jogai\nE névhez \"ember!\" advák örökűl -\nKivéve aki feketén született,\nMert azt baromnak tartják e dicsők\nS az isten képét szíjjal ostorozzák.",
+                "És mégis - mégis fáradozni kell.\nEgy újabb szellem kezd felküzdeni,\nEgy új irány tör át a lelkeken:\nA nyers fajokba tisztább érzeményt\nS gyümölcsözőbb eszméket oltani,\nHogy végre egymást szívben átkarolják,\nS uralkodjék igazság, szeretet.\nHogy a legalsó pór is kunyhajában\nMondhassa bizton: nem vagyok magam!\nTestvérim vannak, számos milliók;\nÉn védem őket, ők megvédnek engem.\nNem félek tőled, sors, bármit akarsz.",
+                "Ez az, miért csüggedni nem szabad.\nRakjuk le, hangyaszorgalommal, amit\nAgyunk az ihlett órákban teremt.\nS ha összehordtunk minden kis követ,\nÉpítsük egy újabb kor Bábelét,\nMíg oly magas lesz, mint a csillagok.\nS ha majd benéztünk a menny ajtaján,\nKihallhatók az angyalok zenéjét,\nÉs földi vérünk minden csepjei\nMagas gyönyörnek lángjától hevültek,\nMenjünk szét mint a régi nemzetek,\nÉs kezdjünk újra tűrni és tanulni.",
+                "Ez hát a sors és nincs vég semmiben?\nNincs és nem is lesz, míg a föld ki nem hal\nS meg nem kövűlnek élő fiai.\nMi dolgunk a világon? küzdeni,\nÉs tápot adni lelki vágyainknak.\nEmber vagyunk, a föld s az ég fia.\nLelkünk a szárny, mely ég felé viszen,\nS mi ahelyett, hogy törnénk fölfelé,\nUnatkozzunk s hitvány madár gyanánt\nPosvány iszapját szopva éldegéljünk?\nMi dolgunk a világon? küzdeni\nErőnk szerint a legnemesbekért.\nElőttünk egy nemzetnek sorsa áll.\nHa azt kivíttuk a mély sülyedésből\nS a szellemharcok tiszta sugaránál\nOlyan magasra tettük, mint lehet,\nMondhatjuk, térvén őseink porához:\nKöszönjük élet! áldomásidat,\nEz jó mulatság, férfi munka volt!"
+            ]
+        },
+        {
+            "title":"Előszó",
+            "author":"Vörösmarty Mihály",
+            "recite":false,
+            "verses":[
+                "Midőn ezt írtam, tiszta volt az ég.\nZöld ág virított a föld ormain.\nMunkában élt az ember mint a hangya:\nKüzdött a kéz, a szellem működött,\nLángolt a gondos ész, a szív remélt,\nS a béke izzadt homlokát törölvén\nMeghozni készült a legszebb jutalmat,\nAz emberüdvöt, melyért fáradott.\nÜnnepre fordúlt a természet, ami\nSzép és jeles volt benne, megjelent.",
+                "Öröm - s reménytől reszketett a lég,\nMegszülni vágyván a szent szózatot,\nMely által a világot mint egy új, egy\nDicsőbb teremtés hangján üdvözölje.\nHallottuk a szót. Mélység és magasság\nViszhangozák azt. S a nagy egyetem\nMegszünt forogni egy pillantatig.\nMély csend lön, mint szokott a vész előtt.\nA vész kitört. Vérfagylaló keze\nEmberfejekkel lapdázott az égre,\nEmberszivekben dúltak lábai.\nLélekzetétől meghervadt az élet,\nA szellemek világa kialutt,\nS az elsötétült égnek arcain\nVad fénnyel a villámok rajzolák le\nAz ellenséges istenek haragját.\nÉs folyton-folyvást ordított a vész,\nMint egy veszetté bőszült szörnyeteg.",
+                "Amerre járt, irtóztató nyomában\nSzétszaggatott népeknek átkai\nSohajtanak fel csonthalmok közől;\nÉs a nyomor gyámoltalan fejét\nElhamvadt várasokra fekteti.\nMost tél van és csend és hó és halál.\nA föld megőszült;\nNem hajszálanként, mint a boldog ember,\nEgyszerre őszült az meg, mint az isten,\nKi megteremtvén a világot, embert,\nE félig istent, félig állatot,\nElborzadott a zordon mű felett\nÉs bánatában ősz lett és öreg.",
+                "Majd eljön a hajfodrász, a tavasz,\nS az agg föld tán vendéghajat veszen,\nVirágok bársonyába öltözik.\nÜvegszemén a fagy fölengedend,\nS illattal elkendőzött arcain\nJókedvet és ifjuságot hazud:\nKérdjétek akkor ezt a vén kacért,\nHová tevé boldogtalan fiait?"
+            ]
+        },
+        {
+            "title":"A bánat? egy nagy oceán",
+            "author":"Petőfi Sándor",
+            "recite":true,
+            "verses":[
+                "A bánat? egy nagy oceán.\nS az öröm?\nAz oceán kis gyöngye. Talán,\nMire fölhozom, össze is töröm."
+            ]
+        },
+        {
+            "title":"Fa leszek, ha",
+            "author":"Petőfi Sándor",
+            "recite":true,
+            "verses":[
+                "Fa leszek, ha fának vagy virága.\nHa harmat vagy: én virág leszek.\nHarmat leszek, ha te napsugár vagy...\nCsak, hogy lényink egyesüljenek.",
+                "Ha, leányka, te vagy a mennyország:\nAkkor én csillagá változom.\nHa, leányka, te vagy a pokol: (hogy\nEgyesüljünk) én elkárhozom."
+            ]
+        },
+        {
+            "title":"A XIX. század költői",
+            "author":"Petőfi Sándor",
+            "recite":false,
+            "verses":[
+                "Ne fogjon senki könnyelműen\nA húrok pengetésihez!\nNagy munkát vállal az magára,\nKi most kezébe lantot vesz.\nHa nem tudsz mást, mint eldalolni\nSaját fájdalmad s örömed:\nNincs rád szüksége a világnak,\nS azért a szent fát félretedd.",
+                "Pusztában bujdosunk, mint hajdan\nNépével Mózes bujdosott,\nS követte, melyet isten külde\nVezérül, a lángoszlopot.\nUjabb időkben isten ilyen\nLángoszlopoknak rendelé\nA költőket, hogy ők vezessék\nA népet Kánaán felé.",
+                "Előre hát mind, aki költő,\nA néppel tűzön-vízen át!\nÁtok reá, ki elhajítja\nKezéből a nép zászlaját.\nÁtok reá, ki gyávaságból\nVagy lomhaságból elmarad,\nHogy, míg a nép küzd, fárad, izzad,\nPihenjen ő árnyék alatt!",
+                "Vannak hamis próféták, akik\nAzt hirdetik nagy gonoszan,\nHogy már megállhatunk, mert itten\nAz ígéretnek földe van.\nHazugság, szemtelen hazugság,\nMit milliók cáfolnak meg,\nKik nap hevében, éhen-szomjan,\nKétségbeesve tengenek.",
+                "Ha majd a bőség kosarából\nMindenki egyaránt vehet,\nHa majd a jognak asztalánál\nMind egyaránt foglal helyet,\nHa majd a szellem napvilága\nRagyog minden ház ablakán:\nAkkor mondhatjuk, hogy megálljunk,\nMert itt van már a Kánaán!",
+                "És addig? addig nincs megnyugvás,\nAddig folyvást küszködni kell. -\nTalán az élet, munkáinkért,\nNem fog fizetni semmivel,\nDe a halál majd szemeinket\nSzelíd, lágy csókkal zárja be,\nS virágkötéllel, selyempárnán\nBocsát le a föld mélyibe."
+            ]
+        }
+    ]
+}
