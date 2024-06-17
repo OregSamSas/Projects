@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magyar Memoriterek</title>
+    <!-- Icon from Emojipedia (https://emojipedia.org/pen#designs)-->
+    <link rel="icon" href="https://em-content.zobj.net/source/sony/336/pen_1f58a-fe0f.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -35,13 +37,17 @@
                 <button type="button" id="next-button" style="display: none;">Következő</button>
                 <div id="feedback"></div>
             </form>
-            <div id="mode-toggle">
+            <div id="mode-toggle" class="mode-toggle">
                 <label for="typing-mode">Gépelés</label>
                 <input type="checkbox" id="typing-mode">
             </div>
-            <div id="recite-mode-toggle">
+            <div id="recite-mode-toggle" class="mode-toggle">
                 <label for="recite-mode">Memoriter</label>
                 <input type="checkbox" id="recite-mode" checked>
+            </div>
+            <div id="gaptext-mode-toggle" class="mode-toggle">
+                <label for="gaptext-mode">Hiányos szöveg</label>
+                <input type="checkbox" id="gaptext-mode" checked>
             </div>
         </div>
     </div>

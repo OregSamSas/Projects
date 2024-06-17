@@ -1,3 +1,9 @@
+:root {
+    --correct-colour-fade: rgba(144, 238, 144, 70);
+    --correct-colour: lightgreen;
+    --incorrect-colour: lightcoral;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -32,13 +38,15 @@ body {
     overflow-y: auto;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
 }
 
 .poem-aligner {
     width: 100%;
+    padding: 10px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .poem-container #poem-container {
@@ -56,7 +64,7 @@ body {
     align-items: center; /* Center content horizontally */
 }
 
-#mode-toggle, #recite-mode-toggle {
+.mode-toggle {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -65,7 +73,11 @@ body {
 }
 
 #recite-mode-toggle {
-    top: 50px; /* Position it 50px below the typing mode toggle */
+    top: 45px; /* Position it 50px below the typing mode toggle */
+}
+
+#gaptext-mode-toggle {
+    top: 70px; /* Position it 50px below the recite mode toggle */
 }
 
 #quiz-form {
@@ -157,10 +169,19 @@ select {
 }
 
 /* Define the specific background colors for correct and incorrect answers */
-select.correct-answer {
-    background-color: lightgreen;
+.correct-answer {
+    background-color: var(--correct-colour);
 }
 
-select.incorrect-answer {
-    background-color: lightcoral;
+.incorrect-answer {
+    background-color: var(--incorrect-colour);
+}
+
+.verseinput, .versespan {
+    margin-right: 5px;
+    padding: 1px !important;
+}
+
+.verseinput {
+    padding-left: 3px !important;
 }

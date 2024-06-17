@@ -12,6 +12,7 @@ dataXHR.send("");
 const poemContainer = document.getElementById('poem-container');
 const modeToggle = document.getElementById('typing-mode');
 const reciteModeToggle = document.getElementById('recite-mode');
+const gaptextModeToggle = document.getElementById('gaptext-mode');
 const titleInput = document.getElementById('title-input');
 const authorInput = document.getElementById('author-input');
 const titleDropdown = document.getElementById('title-dropdown');
@@ -24,13 +25,20 @@ const answerBoxes = document.getElementById('answer-boxes');
 const nextVerseGroup = document.getElementById('next-verse-group');
 const nextVerseLabel = document.getElementById('next-verse-label');
 
+// Global vars
+let verse = new String;
+
 let areAnswersCorrect = []
+
+let gapNumber = 0;
+let goodGaps = 0;
 
 // State variables
 let currentPoem = null;
 let poemIndex = -1;
 let verseIndex = -1;
 let reciteModeEnabled = true;
+let gaptextModeEnabled = true;
 
 // Function to initialize the page
 function initialize() {
@@ -95,25 +103,94 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+function removeExtraSpaces(str) {
+    return str.trim().replace(/\s+/g, ' ');
+}
+
+// Insert text into span element
+function newSpan(txt = "", classes = "", style = "") {
+    let newSpan = document.createElement('span');
+    newSpan.textContent = txt;
+    newSpan.style = style;
+    newSpan.className = classes;
+    return newSpan;
+}
+
+// Construct DIV container from array
+function newDivFromArray(array) {
+    let newDiv = document.createElement("div");
+    array.forEach(element => {
+        newDiv.appendChild(element);
+    });
+    return newDiv;
+}
+
+// Create an input field with a width of a text
+function createInputWithTextWidth(text, padding=4) {
+    let input = document.createElement('input');
+
+    // Text width measured in a temporal element
+    let tempSpan = document.createElement('span');
+    tempSpan.style.visibility = 'hidden';
+    tempSpan.style.whiteSpace = 'nowrap';
+    tempSpan.style.font = getComputedStyle(document.body).font;
+    tempSpan.innerText = text;
+
+    document.body.appendChild(tempSpan);
+
+    // Measuring
+    let textWidth = tempSpan.offsetWidth;
+
+    // Deleting temporaly element
+    document.body.removeChild(tempSpan);
+
+    // Setting the width of the input
+    input.style.width = (textWidth + padding) + 'px';
+
+    return input;
+}
+
 // Remove some words for the creation "open-cloze task"
 function makeGapsInVerse(verse) {
-    let verseArry = []; // separate verse by lines and words
+    gapNumber = 0;
+
+    // separate verse by lines and words, convert it to a doc. fragment and insert inputs
+    let verseArray = [];
     verseArray = verse.split("\n");
-    for (let line = 0; line<verseArray.length; line++) {
-        if (verseArry[line] !== "") {
-            verseArray[line] = verseArray[line].split(" ");
-            console.log(verseArray[line]);
+    for (let line = 0; line < verseArray.length; line++) {
+        if (verseArray[line] !== "") {
+            gapNumber++;
+
+            verseArray[line] = verseArray[line].split(' ');
             let random = getRandomInt(verseArray[line].length);
-            verseArray[line][random] = "&_;"
-            verseArray[line] = verseArray[line].join(" ");
+            let inputField = createInputWithTextWidth(verseArray[line][random])
+            inputField.className = "verseinput";
+            inputField.type = "text";
+            inputField.setAttribute("title", verseArray[line][random]);
+            let tempLine = [
+                newSpan(verseArray[line].slice(0, random).join(' '), "versespan"),
+                inputField,
+                newSpan(verseArray[line].slice(random + 1, verseArray[line].length).join(' '), "versespan")
+            ]
+            verseArray[line] = tempLine;
+            console.log(verseArray[line]);
         }
     }
-    return verseArray.join("\n");
+
+    // Construct a set of HTML document elements
+    let verseDocSet = document.createDocumentFragment();
+    for (let divNum = 0; divNum < verseArray.length; divNum++) {
+        console.log(verseArray[divNum])
+        verseDocSet.append(newDivFromArray(verseArray[divNum]));
+    }
+
+    return verseDocSet;
 }
 
 // Function to load a new poem
 function loadNewPoem() {
-    // Reset previous state
+    // Delete previously displayed verse and reset previous state
+    poemContainer.innerHTML = "";
     resetInputBackgroundColors();
     poemContainer.style.color = "black"
 
@@ -126,7 +203,8 @@ function loadNewPoem() {
     feedbackContainer.textContent = '';
     feedbackContainer.style.display = 'none';
 
-    reciteModeEnabled = reciteModeToggle.checked
+    reciteModeEnabled = reciteModeToggle.checked;
+    gaptextModeEnabled = gaptextModeToggle.checked;
 
     nextButton.style.display = 'none';
     submitButton.style.display = 'inline-block';
@@ -136,31 +214,38 @@ function loadNewPoem() {
     currentPoem = poems[poemIndex];
 
     // Display poem in poem container
-    if (currentPoem.recite && reciteModeToggle.checked) {
-        
-        if (currentPoem.verses.length > 1){
-            // Display a random verse for recitation
-            displayPoem();
+    if (currentPoem.recite && reciteModeEnabled) {
+
+        if (Math.random() > 0.5 && gaptextModeEnabled) {
+            // Display a gappy verse with inputs for missing words to fill in/out
+            displayPoem(true);
             displayInputBoxes(true);
         } else {
-            // Display a random author and title for recitation
-            displayData();
-            displayInputBoxes(false);
+            gaptextModeEnabled = false;
+            if (currentPoem.verses.length > 1) {
+                // Display a random verse for recitation (next stanza etc.)
+                displayPoem();
+                displayInputBoxes(true);
+            } else {
+                // Display a random author and title for recitation (if it has only 1 stanza/group of lines)
+                displayData();
+                displayInputBoxes(false);
+            }
+            nextVerseGroup.style.display = 'block';
+    
+            if (currentPoem.verses.length === 1) {
+                nextVerseLabel.textContent = "Vers:";
+            }
+            else if (verseIndex + 1 == (currentPoem.verses.length)) {
+                nextVerseLabel.textContent = "Első versszak:";
+            }
+            else {
+                nextVerseLabel.textContent = "Következő versszak:";
+            }
         }
 
-        nextVerseGroup.style.display = 'block';
-
-        if (currentPoem.verses.length === 1){
-            nextVerseLabel.textContent = "Vers:";
-        }
-        else if (verseIndex + 1 == (currentPoem.verses.length)){
-            nextVerseLabel.textContent = "Első versszak:";
-        }
-        else {
-            nextVerseLabel.textContent = "Következő versszak:";
-        }
     } else {
-        // Display author and title, ask for title and author
+        // Display verse extract, ask for title and author
         displayPoem();
         displayInputBoxes(true);
     }
@@ -171,18 +256,24 @@ function loadNewPoem() {
 }
 
 // Function to display the current poem in the poem container
-function displayPoem() {
+function displayPoem(gaptext = false) {
     verseIndex = Math.floor(Math.random() * currentPoem.verses.length);
-    const verse = currentPoem.verses[verseIndex];
-    if (false) {
-        verse = makeGapsInVerse(verse);
+    verse = currentPoem.verses[verseIndex];
+    let verseFragment;
+    if (gaptext) {
+        verseFragment = makeGapsInVerse(verse);
+    } else {
+        verseFragment = document.createElement("span");
+        verseFragment.textContent = verse;
     }
-    poemContainer.textContent = verse;
+    poemContainer.appendChild(verseFragment);
 }
+
 function displayData() {
     verseIndex = 0
     poemContainer.textContent = `${currentPoem.author}: ${currentPoem.title}`;
 }
+
 function displayInputBoxes(show){
     if (show){
         answerBoxes.style.display = "block";
@@ -263,56 +354,85 @@ function checkTextarea(nextVerse) {
     return isNextVerseCorrect
 }
 
+function checkGaps() {
+    let gaps = document.querySelectorAll(".verseinput");
+    gaps.forEach(gap => {
+        if (gap.type === "text" && !gap.disabled) { // safety check
+            if (removeExtraSpaces(gap.value.toLowerCase()) == removeExtraSpaces(gap.title.toLowerCase())) {
+                // correct
+                goodGaps++;
+                gap.className += " correct-answer";
+            } else {
+                // incorrect
+                gap.className += " incorrect-answer";
+                let correctAnswer = document.createElement("span");
+                correctAnswer.style.color = "var(--correct-colour)";
+                correctAnswer.style.fontWeight = "bold";
+                correctAnswer.innerHTML = `<i>${gap.title}</i>&nbsp;`;
+                gap.after(correctAnswer);
+            }
+            gap.disabled = true;
+        }
+    });
+
+    return goodGaps === gapNumber;
+}
+
 // Function to handle form submission and check answers
 function checkAnswer(event) {
     event.preventDefault();
 
-    areAnswersCorrect = []
+    areAnswersCorrect = [];
 
     // Showing feedback based on correctness
 
     if (currentPoem.recite && reciteModeEnabled){
-        if (currentPoem.verses.length === 1){
-            areAnswersCorrect = [true, true]
-            areAnswersCorrect.push(checkTextarea(currentPoem.verses[(verseIndex+1) % (currentPoem.verses.length)]))
-        }
-        else{
-            areAnswersCorrect = checkInputBoxes()
-            areAnswersCorrect.push(checkTextarea(currentPoem.verses[(verseIndex+1) % (currentPoem.verses.length)]))
+        if (gaptextModeEnabled) {
+            areAnswersCorrect = checkInputBoxes();
+            areAnswersCorrect.push(checkGaps())
+        } else {
+            if (currentPoem.verses.length === 1){
+                areAnswersCorrect = [true, true];
+                areAnswersCorrect.push(checkTextarea(currentPoem.verses[(verseIndex+1) % (currentPoem.verses.length)]));
+            }
+            else{
+                areAnswersCorrect = checkInputBoxes();
+                areAnswersCorrect.push(checkTextarea(currentPoem.verses[(verseIndex+1) % (currentPoem.verses.length)]));
+            }
         }
     }
     else{
-        areAnswersCorrect = checkInputBoxes()
-        areAnswersCorrect.push(true)
+        areAnswersCorrect = checkInputBoxes();
+        areAnswersCorrect.push(true);
     }
 
-    if (areAnswersCorrect[0] && areAnswersCorrect[1] && areAnswersCorrect[2]){
-        showFeedback('Helyes!', 'green');
+    if (areAnswersCorrect[0] && areAnswersCorrect[1] && areAnswersCorrect[2]) {
+        showFeedback("Helyes!", 'green');
     }
-    else if (!areAnswersCorrect[0] && areAnswersCorrect[1] && areAnswersCorrect[2]){
+    else if (!areAnswersCorrect[0] && areAnswersCorrect[1] && areAnswersCorrect[2]) {
         showFeedback(`Hibás. A helyes cím "${currentPoem.title}".`, 'red');
     }
-    else if (areAnswersCorrect[0] && !areAnswersCorrect[1] && areAnswersCorrect[2]){
+    else if (areAnswersCorrect[0] && !areAnswersCorrect[1] && areAnswersCorrect[2]) {
         showFeedback(`Hibás. A szerző neve "${currentPoem.author}".`, 'red');
     }
-    else if (!areAnswersCorrect[0] && !areAnswersCorrect[1] && areAnswersCorrect[2]){
+    else if (!areAnswersCorrect[0] && !areAnswersCorrect[1] && areAnswersCorrect[2]) {
         showFeedback(`Hibás. A cím "${currentPoem.title}" és a szerző "${currentPoem.author}"`, 'red');
     }
 
-    else if (areAnswersCorrect[0] && areAnswersCorrect[1] && !areAnswersCorrect[2]){
+    else if (areAnswersCorrect[0] && areAnswersCorrect[1] && !areAnswersCorrect[2]) {
         showFeedback('Hibásan írtad a memoritert.', 'red');
     }
-    else if (!areAnswersCorrect[0] && areAnswersCorrect[1] && !areAnswersCorrect[2]){
+    else if (!areAnswersCorrect[0] && areAnswersCorrect[1] && !areAnswersCorrect[2]) {
         showFeedback(`Hibás. A helyes cím "${currentPoem.title}".`, 'red');
     }
-    else if (areAnswersCorrect[0] && !areAnswersCorrect[1] && !areAnswersCorrect[2]){
+    else if (areAnswersCorrect[0] && !areAnswersCorrect[1] && !areAnswersCorrect[2]) {
         showFeedback(`Hibás. A szerző neve "${currentPoem.author}".`, 'red');
     }
-    else if (!areAnswersCorrect[0] && !areAnswersCorrect[1] && !areAnswersCorrect[2]){
+    else if (!areAnswersCorrect[0] && !areAnswersCorrect[1] && !areAnswersCorrect[2]) {
         showFeedback(`Hibás. A cím "${currentPoem.title}" és a szerző "${currentPoem.author}"`, 'red');
     }
 
-    if (!areAnswersCorrect[2]){
+    if (!areAnswersCorrect[2] && !gaptextModeEnabled) {
         poemContainer.textContent = currentPoem.verses[(verseIndex+1) % (currentPoem.verses.length)]
         poemContainer.style.color = "red"
     }
@@ -324,6 +444,9 @@ function checkAnswer(event) {
 
 // Function to show feedback message
 function showFeedback(message, color) {
+    if (gaptextModeEnabled) {
+        message += ` Helyesen beírt szavak száma: ${goodGaps}/${gapNumber}`;
+    }
     feedbackContainer.textContent = message;
     feedbackContainer.style.color = color;
     feedbackContainer.style.display = 'block';
