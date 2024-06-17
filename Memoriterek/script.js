@@ -59,7 +59,8 @@ vagyunk. Imádjuk Urunk Isten
 kegyelmét e lélekért, hogy
 irgalmazzon oneki, és kegyelmez-
 zen, és bocsássa mind[en] o
-bunét!`,`É imádjuk Szent
+bunét!`,
+`É imádjuk Szent
 Asszony Máriát és Boldog Mihály
 arkangyalt és mind[en] angyalokat,
 hogy imádjanak érte! És
@@ -938,6 +939,27 @@ function toggleMode() {
     }
 }
 
+// Better random generator
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+// Remove some words for the creation "open-cloze task"
+function makeGapsInVerse(verse) {
+    let verseArry = []; // separate verse by lines and words
+    verseArray = verse.split("\n");
+    for (let line = 0; line<verseArray.length; line++) {
+        if (verseArry[line] !== "") {
+            verseArray[line] = verseArray[line].split(" ");
+            console.log(verseArray[line]);
+            let random = getRandomInt(verseArray[line].length);
+            verseArray[line][random] = "&_;"
+            verseArray[line] = verseArray[line].join(" ");
+        }
+    }
+    return verseArray.join("\n");
+}
+
 // Function to load a new poem
 function loadNewPoem() {
     // Reset previous state
@@ -1001,6 +1023,9 @@ function loadNewPoem() {
 function displayPoem() {
     verseIndex = Math.floor(Math.random() * currentPoem.verses.length);
     const verse = currentPoem.verses[verseIndex];
+    if (true) {
+        verse = makeGapsInVerse(verse);
+    }
     poemContainer.textContent = verse;
 }
 function displayData() {
