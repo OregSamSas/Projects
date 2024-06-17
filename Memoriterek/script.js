@@ -212,7 +212,7 @@ function loadNewPoem() {
     submitButton.style.display = 'inline-block';
 
     // Select a random poem
-    poemIndex = 14 //Math.floor(Math.random() * poems.length);
+    poemIndex = Math.floor(Math.random() * poems.length);
     currentPoem = poems[poemIndex];
 
     // Display poem in poem container
@@ -259,7 +259,7 @@ function loadNewPoem() {
 
 // Function to display the current poem in the poem container
 function displayPoem(gaptext = false) {
-    verseIndex = 4 //Math.floor(Math.random() * currentPoem.verses.length);
+    verseIndex = Math.floor(Math.random() * currentPoem.verses.length);
     verse = currentPoem.verses[verseIndex];
     let verseFragment;
     if (gaptext) {
