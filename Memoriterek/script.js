@@ -180,8 +180,9 @@ function makeGapsInVerse(verse) {
     // Construct a set of HTML document elements
     let verseDocSet = document.createDocumentFragment();
     for (let divNum = 0; divNum < verseArray.length; divNum++) {
-        console.log(verseArray[divNum])
-        verseDocSet.append(newDivFromArray(verseArray[divNum]));
+        if (verseArray != "") {
+            verseDocSet.append(newDivFromArray(verseArray[divNum]));
+        }
     }
 
     return verseDocSet;
@@ -193,6 +194,7 @@ function loadNewPoem() {
     poemContainer.innerHTML = "";
     resetInputBackgroundColors();
     poemContainer.style.color = "black"
+    goodGaps = 0;
 
     titleInput.value = '';
     authorInput.value = '';
@@ -216,7 +218,7 @@ function loadNewPoem() {
     // Display poem in poem container
     if (currentPoem.recite && reciteModeEnabled) {
 
-        if (Math.random() > 0.5 && gaptextModeEnabled) {
+        if (Math.random() > 0.6 && gaptextModeEnabled) {
             // Display a gappy verse with inputs for missing words to fill in/out
             displayPoem(true);
             displayInputBoxes(true);
@@ -459,6 +461,16 @@ function resetInputBackgroundColors() {
     nextVerseTextarea.style.backgroundColor = '';
     titleDropdown.style.backgroundColor = '';
     authorDropdown.style.backgroundColor = '';
+}
+
+function checkBoxes() {
+    if (document.getElementById('recite-mode').checked) {
+        document.getElementById('gaptext-mode').disabled = false;
+        document.querySelector('label[for="gaptext-mode"]').style.opacity = "1";
+    } else {
+        document.getElementById('gaptext-mode').disabled = true;
+        document.querySelector('label[for="gaptext-mode"]').style.opacity = "0.7";
+    }
 }
 
 // Event listeners
