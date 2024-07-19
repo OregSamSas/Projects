@@ -1717,64 +1717,72 @@ function toggleMode() {
 
 // Function to load a new poem
 function loadNewPoem() {
-    // Reset previous state
-    resetInputBackgroundColors();
-    poemContainer.style.color = "black"
+    check1any = document.getElementById("poems-checkbox-1-1").checked && document.getElementById("poems-checkbox-1-2").checked && document.getElementById("poems-checkbox-1-3").checked && document.getElementById("poems-checkbox-1-4").checked && document.getElementById("poems-checkbox-1-5").checked && document.getElementById("poems-checkbox-1-6").checked && document.getElementById("poems-checkbox-1-7").checked && document.getElementById("poems-checkbox-1-8").checked && document.getElementById("poems-checkbox-1-9").checked && document.getElementById("poems-checkbox-1-10").checked && document.getElementById("poems-checkbox-1-11").checked && document.getElementById("poems-checkbox-1-12").checked && document.getElementById("poems-checkbox-1-13").checked && document.getElementById("poems-checkbox-1-14").checked && document.getElementById("poems-checkbox-1-15").checked && document.getElementById("poems-checkbox-1-16").checked && document.getElementById("poems-checkbox-1-17").checked && document.getElementById("poems-checkbox-1-18").checked
+    check2any = document.getElementById("poems-checkbox-2-1").checked && document.getElementById("poems-checkbox-2-2").checked && document.getElementById("poems-checkbox-2-3").checked && document.getElementById("poems-checkbox-2-4").checked && document.getElementById("poems-checkbox-2-5").checked && document.getElementById("poems-checkbox-2-6").checked && document.getElementById("poems-checkbox-2-7").checked && document.getElementById("poems-checkbox-2-8").checked && document.getElementById("poems-checkbox-2-9").checked && document.getElementById("poems-checkbox-2-10").checked && document.getElementById("poems-checkbox-2-11").checked && document.getElementById("poems-checkbox-2-12").checked && document.getElementById("poems-checkbox-2-13").checked && document.getElementById("poems-checkbox-2-14").checked && document.getElementById("poems-checkbox-2-15").checked && document.getElementById("poems-checkbox-2-16").checked
 
-    titleInput.value = '';
-    authorInput.value = '';
-    titleDropdown.selectedIndex = -1;
-    authorDropdown.selectedIndex = -1;
-    nextVerseTextarea.value = '';
-    nextVerseGroup.style.display = 'none';
-    feedbackContainer.textContent = '';
-    feedbackContainer.style.display = 'none';
+    if (check1any && check2any){
+        // Reset previous state
+        resetInputBackgroundColors();
+        poemContainer.style.color = "black"
 
-    reciteModeEnabled = !reciteModeToggle.checked
+        titleInput.value = '';
+        authorInput.value = '';
+        titleDropdown.selectedIndex = -1;
+        authorDropdown.selectedIndex = -1;
+        nextVerseTextarea.value = '';
+        nextVerseGroup.style.display = 'none';
+        feedbackContainer.textContent = '';
+        feedbackContainer.style.display = 'none';
 
-    nextButton.style.display = 'none';
-    submitButton.style.display = 'inline-block';
+        reciteModeEnabled = !reciteModeToggle.checked
 
-    // Select a random poem
-    poemIndex = Math.floor(Math.random() * poems.length);
-    while (!poems[poemIndex].active.checked){
+        nextButton.style.display = 'none';
+        submitButton.style.display = 'inline-block';
+
+        // Select a random poem
         poemIndex = Math.floor(Math.random() * poems.length);
-    }
-    currentPoem = poems[poemIndex];
+        while (!poems[poemIndex].active.checked){
+            poemIndex = Math.floor(Math.random() * poems.length);
+        }
+        currentPoem = poems[poemIndex];
 
-    // Display poem in poem container
-    if (currentPoem.recite && !reciteModeToggle.checked) {
-        
-        if (currentPoem.verses.length > 1){
-            // Display a random verse for recitation
+        // Display poem in poem container
+        if (currentPoem.recite && !reciteModeToggle.checked) {
+
+            if (currentPoem.verses.length > 1){
+                // Display a random verse for recitation
+                displayPoem();
+                displayInputBoxes(true);
+            } else {
+                // Display a random author and title for recitation
+                displayData();
+                displayInputBoxes(false);
+            }
+
+            nextVerseGroup.style.display = 'block';
+
+            if (currentPoem.verses.length === 1){
+                nextVerseLabel.textContent = "Vers:";
+            }
+            else if (verseIndex + 1 == (currentPoem.verses.length)){
+                nextVerseLabel.textContent = "Első versszak:";
+            }
+            else {
+                nextVerseLabel.textContent = "Következő versszak:";
+            }
+        } else {
+            // Display author and title, ask for title and author
             displayPoem();
             displayInputBoxes(true);
-        } else {
-            // Display a random author and title for recitation
-            displayData();
-            displayInputBoxes(false);
         }
 
-        nextVerseGroup.style.display = 'block';
-
-        if (currentPoem.verses.length === 1){
-            nextVerseLabel.textContent = "Vers:";
-        }
-        else if (verseIndex + 1 == (currentPoem.verses.length)){
-            nextVerseLabel.textContent = "Első versszak:";
-        }
-        else {
-            nextVerseLabel.textContent = "Következő versszak:";
-        }
-    } else {
-        // Display author and title, ask for title and author
-        displayPoem();
-        displayInputBoxes(true);
+        // Hide submit button and show next button
+        submitButton.style.display = 'inline-block';
+        nextButton.style.display = 'none';
     }
-
-    // Hide submit button and show next button
-    submitButton.style.display = 'inline-block';
-    nextButton.style.display = 'none';
+    else{
+        alert("Nincs kiválasztott vers")
+    }
 }
 
 // Function to display the current poem in the poem container
