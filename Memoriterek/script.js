@@ -4,6 +4,7 @@ const poems = [
         title: "Gyűlölöm azt",
         author: "Anakreón",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-1"),
         verses: [
 `Gyűlölöm azt, aki telt kupa mellett, bort iszogatván,
 háborut emleget és lélekölő viadalt.
@@ -15,6 +16,7 @@ szép adományairól zengve szeretni tanít.`
         title: "Gyűlölök és szeretek",
         author: "Catullus",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-2"),
         verses: [
 `Gyűlölök és szeretek. Tán kérded, mért teszem én azt.
 Nem tudom, ám érzem, s szerteszakít ez a kín.`
@@ -24,6 +26,7 @@ Nem tudom, ám érzem, s szerteszakít ez a kín.`
         title: "Halotti beszéd",
         author: "ismeretlen középkori pap",
         recite: false,
+        active: document.getElementById("poems-checkbox-2-1"),
         verses: [
 `Látjátok, feleim, szemetekkel,
 mik vagyunk: íme, por és hamu
@@ -33,8 +36,8 @@ teremté kezdetben [Úr] mi osünket,
 paradicsomot házzá. És mind[en]
 paradicsomban való gyümölcsök-
 tol monda neki élnie. Csupán
-tiltá ot egy fa gyümölcsétol.`,
-`De mondá neki, mért ne
+tiltá ot egy fa gyümölcsétol. ...`,
+`... De mondá neki, mért ne
 ennék: „Bizony, [a]ki napon eendel
 az[on] gyümölcstol, halálnak
 halálával halsz". Hallá
@@ -46,8 +49,8 @@ ben halált evék. És az[on] gyü-
 mölcsnek oly keseru vala
 leve, hogy torkát megszakasztja
 vala. Nem csupán magának, de
-mind[en] o fajának halált evék.`,
-`Haraguvék Isten, és veté ot ez
+mind[en] o fajának halált evék. ...`,
+`...Haraguvék Isten, és veté ot ez
 munkás világba: és lon
 halálnak és pokolnak martaléka,
 és mind[en] o nemének. Kik azok?
@@ -59,14 +62,14 @@ vagyunk. Imádjuk Urunk Isten
 kegyelmét e lélekért, hogy
 irgalmazzon oneki, és kegyelmez-
 zen, és bocsássa mind[en] o
-bunét!`,`É imádjuk Szent
+bunét! ...`,`... É imádjuk Szent
 Asszony Máriát és Boldog Mihály
 arkangyalt és mind[en] angyalokat,
 hogy imádjanak érte! És
 imádjuk Szent Péter urat,
 akinek ad[at]ott hatalom oldania
 és kötnie, hogy oldja mind[en]
-o bunét. `,`És imádjuk mind[en]
+o bunét. ... `,`... És imádjuk mind[en]
 szenteket, hogy legyenek neki
 segedelmére Urunk színe elott, hogy
 Isten o imádságuk miá bo-
@@ -77,8 +80,8 @@ radicsom nyugalmába, és adjon
 neki mennyországba utat,
 és mind[en] jóban részt! És
 kiáltsátok Urunkhoz háromszor:
-kyrie eleison!`,
-`Szerelmes Testvéreim! imádjunk
+kyrie eleison! ...`,
+`... Szerelmes Testvéreim! imádjunk
 e szegény ember lelkéért,
 [a]kit Úr e napon e hamis világ
 tömlöcébol mente, [a]kinek e
@@ -96,13 +99,14 @@ ter: kyrie eleison!`
         title: "Ómagyar Mária-siralom",
         author: "ismeretlen középkori pap",
         recite: false,
+        active: document.getElementById("poems-checkbox-2-2"),
         verses: [
 `Volék sirolm tudotlon.
 Sirolmol sepedik,
 buol oszuk, epedek,`,
 `Választ világumtuul,
 zsidou fiodumtuul,
-ézes ürümemtüül.`,
+ézes ürümemtüül. `,
 `Ó én ézes urodum,
 eggyen-igy fiodum,
 sírou anyát teküncsed,
@@ -110,7 +114,7 @@ buabeleül kinyuhhad!`,
 `Szemem künyüel árad,
 junhum buol fárad.
 Te vérüd hullottya
-én junhum olélottya.`,
+én junhum olélottya. `,
 `Világ világa,
 virágnak virága,
 keserüen kinzatul,
@@ -118,27 +122,27 @@ vos szegekkel veretül!`,
 `Uh nekem, én fiom,
 ézes mézüül,
 szégyenül szépségüd,
-vírüd hioll vizeül.`,
+vírüd hioll vizeül. `,
 `Sirolmom, fuhászatum
 tertetik kiül,
 én junhumnok bel bua,
-ki sumha nim hiül.`,
+ki sumha nim hiül. `,
 `Végy halál engümet,
 eggyedűm íllyen,
 maraggyun urodum,
-kit világ féllyen!`,
+kit világ féllyen! `,
 `Ó, igoz Simeonnok
 bezzeg szovo ére:
 én érzem ez bútürüt,
-kit níha egíre.`,
+kit níha egíre. `,
 `Tüüled válnum;
 de nüm valállal,
 hul igy kinzassál,
-fiom, halállal!`,
+fiom, halállal! `,
 `Zsidou, mit téssz türvéntelen,
 Fiom mert hol biüntelen.
 Fugvá, husztuzvá,
-üklelvé, ketvé ülüd!`,
+üklelvé, ketvé ülüd! `,
 `Kegyüggyetük fiomnok,
 ne légy kegyülm mogomnok!
 Ovogy halál kináal
@@ -150,6 +154,7 @@ egyembelű üllyétük!`
         title: "Pannónia Dicsérete",
         author: "Janus Pannonius",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-3"),
         verses: [
 `Eddig Itália földjén termettek csak a könyvek,
 S most Pannónia is ontja a szép dalokat.
@@ -161,13 +166,14 @@ Szellemem egyre dicsőbb, általa híres e föld!`
         title: "Egy katonaének",
         author: "Balassi Bálint",
         recite: false,
+        active: document.getElementById("poems-checkbox-2-3"),
         verses: [
 `Vitézek, mi lehet ez széles föld felett
 szebb dolog az végeknél?
 Holott kikeletkor az sok szép madár szól,
 kivel ember ugyan él;
 Mező jó illatot, az ég szép harmatot
-ád, ki kedves mindennél.`,
+ád, ki kedves mindennél. `,
 `Ellenség hírére vitézeknek szíve
 gyakorta ott felbuzdul,
 Sőt azon kívül is, csak jó kedvébűl is
@@ -222,6 +228,7 @@ Mint sok fát gyümölccsel, sok jó szerencsékkel
         title: "Adj már csendességet...",
         author: "Balassi Bálint",
         recite: false,
+        active: document.getElementById("poems-checkbox-2-4"),
         verses: [
 `Adj már csendességet, lelki békességet, mennybéli Úr!
 Bujdosó elmémet ódd bútól szívemet, kit sok kín fúr!
@@ -249,6 +256,7 @@ Kit jól gyakorolván, haljak meg nyugodván, bú s kín nélkül!`
         title: "Tartózkodó kérelem",
         author: "Csokonai Vitéz Mihály",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-4"),
         verses: [
 `A hatalmas szerelemnek
     Megemésztő tüze bánt.
@@ -270,6 +278,7 @@ Ezer ambrózia csókkal
         title: "A Reményhez",
         author: "Csokonai Vitéz Mihály",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-5"),
         verses: [
 `Főldiekkel játszó
     Égi tűnemény,
@@ -344,6 +353,7 @@ Kedv! Remények! Lillák!
         title: "A közelítő tél (1. vsz)",
         author: "Berzsenyi Dániel",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-6"),
         verses: [
 `Hervad már ligetünk, s díszei hullanak,
 Tarlott bokrai közt sárga levél zörög.
@@ -355,6 +365,7 @@ Közt nem lengedez a Zephyr.`
         title: "A magyarokhoz (I.) (1. vsz)",
         author: "Berzsenyi Dániel",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-7"),
         verses: [
 `Romlásnak indult hajdan erős magyar!
 Nem látod, Árpád vére miként fajul?
@@ -366,6 +377,7 @@ Nem látod, Árpád vére miként fajul?
         title: "Osztályrészem (1. vsz)",
         author: "Berzsenyi Dániel",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-8"),
         verses: [
 `Partra szállottam. Levonom vitorlám.
 A szelek mérgét nemesen kiálltam.
@@ -377,6 +389,7 @@ Izzada orcám.`
         title: "Himnusz",
         author: "Kölcsey Ferenc",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-9"),
         verses: [
 `Isten, áldd meg a magyart
 Jó kedvvel, bőséggel,
@@ -455,6 +468,7 @@ A multat s jövendőt!`
         title: "Zrínyi második éneke",
         author: "Kölcsey Ferenc",
         recite: false,
+        active: document.getElementById("poems-checkbox-2-5"),
         verses: [
 `Te lásd meg, ó sors, szenvedő hazámat,
 Vérkönnyel ázva nyög feléd!
@@ -497,6 +511,7 @@ Hogy kedvre gyúl, ki bájkörébe lép.`
         title: "Szózat",
         author: "Vörösmarty Mihály",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-10"),
         verses: [
 `Hazádnak rendületlenűl
 Légy híve, oh magyar ;
@@ -573,6 +588,7 @@ Itt élned, halnod kell.`
         title: "Gondolatok a könyvtárban",
         author: "Vörösmarty Mihály",
         recite: false,
+        active: document.getElementById("poems-checkbox-2-6"),
         verses: [
 `Hová lépsz most, gondold meg, oh tudós,
 Az emberiségnek elhányt rongyain
@@ -595,8 +611,8 @@ Erény van írva e lapon; de egykor
 Zsivány ruhája volt. S amott?
 Az ártatlanság boldog napjai
 Egy eltépett szűz gyönge öltönyén,
-Vagy egy dühös bujának pongyoláján.
-És itt a törvény - véres lázadók
+Vagy egy dühös bujának pongyoláján. ...`,
+`...És itt a törvény - véres lázadók
 Hamis birák és zsarnokok mezéből
 Fehérre mosdott könyvnek lapjain.
 Emitt a gépek s számok titkai!
@@ -636,8 +652,8 @@ Bányáiból kifejtett az idő?
 Hány fényes lélek tépte el magát,
 Virrasztott a sziv égő romja mellett,
 Hogy tévedt, sujtott embertársinak
-Irányt adjon s erőt, vigasztalást.
-Az el nemn ismert érdem hősei,
+Irányt adjon s erőt, vigasztalást. ...`,
+`...Az el nemn ismert érdem hősei,
 Kiket - midőn már elhunytak s midőn
 Ingyen tehette - csúfos háladattal
 Kezdett imádni a galád világ,
@@ -712,6 +728,7 @@ Ez jó mulatság, férfi munka volt!`
         title: "Előszó",
         author: "Vörösmarty Mihály",
         recite: false,
+        active: document.getElementById("poems-checkbox-2-7"),
         verses: [
 `Midőn ezt írtam, tiszta volt az ég.
 Zöld ág virított a föld ormain.
@@ -771,6 +788,7 @@ Hová tevé boldogtalan fiait?`
         title: "A bánat? egy nagy oceán",
         author: "Petőfi Sándor",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-11"),
         verses: [
 `A bánat? egy nagy oceán.
 S az öröm?
@@ -782,6 +800,7 @@ Mire fölhozom, össze is töröm.`
         title: "Fa leszek, ha",
         author: "Petőfi Sándor",
         recite: true,
+        active: document.getElementById("poems-checkbox-1-12"),
         verses: [
 `Fa leszek, ha fának vagy virága.
 Ha harmat vagy: én virág leszek.
@@ -798,6 +817,7 @@ Egyesüljünk) én elkárhozom.`
         title: "A XIX. század költői",
         author: "Petőfi Sándor",
         recite: false,
+        active: document.getElementById("poems-checkbox-2-8"),
         verses: [
 `Ne fogjon senki könnyelműen
 A húrok pengetésihez!
@@ -853,6 +873,751 @@ Szelíd, lágy csókkal zárja be,
 S virágkötéllel, selyempárnán
 Bocsát le a föld mélyibe.`
         ]
+    },
+    {
+        title: "Toldi estéje",
+        author: "Arany János",
+        recite: true,
+        active: document.getElementById("poems-checkbox-1-13"),
+        verses: [
+`Őszbe csavarodott a természet feje,
+Dérré vált a harmat, hull a fák levele,
+Rövidebb, rövidebb lesz a napnak útja,
+És hosszúkat alszik rá, midőn megfutja.`,
+ 
+`Megpihen legszélén az égi határnak
+S int az öregeknek: "benneteket várlak!"
+Megrezdűl a feje sok öregnek erre:
+Egymásután mégis mennek a nyughelyre.`,
+ 
+`"Végső rendelkezést tennék: de hát minek?
+Nem igen van: miről. S ha volna sincs: kinek.
+Nem hagyok örököst... csak egy hű cselédet:
+Azt kötöm szivedre - - meg a magyar népet.`,
+ 
+`Szeresd a magyart, de ne faragd le" - szóla,
+"Erejét, formáját, durva kérgét róla:
+Mert mi haszna símább, ha jól megfaragják?
+Nehezebb eltörni a faragatlan fát."`
+        ]
+    },
+    {
+        title: "Epilógus",
+        author: "Arany János",
+        recite: false,
+        active: document.getElementById("poems-checkbox-2-9"),
+        verses: [
+`Az életet már megjártam.
+Többnyire csak gyalog jártam,
+Gyalog bizon'...
+Legfölebb ha omnibuszon.`,
+ 
+`Láttam sok kevély fogatot,
+Fényes tengelyt, cifra bakot:
+S egy a lelkem!
+Soha meg se' irigyeltem.`,
+ 
+`Nem törődtem bennülővel,
+Hetyke úrral, cifra nővel:
+Hogy' áll orra
+Az út szélin baktatóra.`,
+ 
+`Ha egy úri lócsiszárral
+Találkoztam s bevert sárral:
+Nem pöröltem, -
+Félreálltam, letöröltem.`,
+ 
+`Hiszen az útfélen itt-ott,
+Egy kis virág nekem nyitott:
+Azt leszedve,
+Megvolt szívem minden kedve.`,
+ 
+`Az életet, ím, megjártam;
+Nem azt adott, amit vártam:
+Néha többet,
+Kérve, kellve, kevesebbet.`,
+ 
+`Ada címet, bár nem kértem,
+S több a hír-név, mint az érdem:
+Nagyravágyva,
+Bételt volna keblem vágya.`,
+ 
+`Kik hiúnak és kevélynek -
+Tudom, boldognak is vélnek:
+S boldogságot
+Irígy nélkül még ki látott?`,
+ 
+`Bárha engem titkos métely
+Fölemészt: az örök kétely;
+S pályám bére
+Égető, mint Nessus vére.`,
+ 
+`Mily temérdek munka várt még!...
+Mily kevés, amit beválték
+Félbe'-szerbe'
+S hány reményem hagyott cserbe'!...`,
+ 
+`Az életet már megjártam;
+Mit szivembe vágyva zártam,
+Azt nem hozta,
+Attól makacsul megfoszta.`,
+ 
+`Egy kis független nyugalmat,
+Melyben a dal megfoganhat,
+Kértem kérve:
+S ő halasztá évrül-évre.`,
+ 
+`Csöndes fészket zöld lomb árnyán,
+Hova múzsám el-elvárnám,
+Mely sajátom;
+Benne én és kis családom.`,
+ 
+`Munkás, vidám öregséget,
+Hol, mit kezdtem, abban véget...
+Ennyi volt csak;
+S hogy megint ültessek, oltsak.`,
+ 
+`Most, ha adná is már, késő:
+Egy nyugalom vár, a végső:
+Mert hogy' szálljon,
+Bár kalitja már kinyitva,
+Rab madár is, szegett szárnyon?`
+        ]
+    },
+    {
+        title: "Góg és Magóg fia vagyok én",
+        author: "Ady Endre",
+        recite: true,
+        active: document.getElementById("poems-checkbox-1-14"),
+        verses: [
+`Góg és Magóg fia vagyok én,
+Hiába döngetek kaput, falat
+S mégis megkérdem tőletek:
+Szabad-e sírni a Kárpátok alatt?`,
+ 
+`Verecke híres útján jöttem én,
+Fülembe még ősmagyar dal rivall,
+Szabad-e Dévénynél betörnöm
+Új időknek új dalaival?`,
+ 
+`Fülembe forró ólmot öntsetek,
+Legyek az új, az énekes Vazul,
+Ne halljam az élet új dalait,
+Tiporjatok reám durván, gazul.`,
+ 
+`De addig sírva, kínban, mit se várva
+Mégiscsak száll új szárnyakon a dal
+S ha elátkozza százszor Pusztaszer,
+Mégis győztes, mégis új és magyar.`
+        ]
+    },
+    {
+        title: "Kocsi-út az éjszakában",
+        author: "Ady Endre",
+        recite: true,
+        active: document.getElementById("poems-checkbox-1-15"),
+        verses: [
+`Milyen csonka ma a Hold,
+Az éj milyen sivatag, néma,
+Milyen szomoru vagyok én ma,
+Milyen csonka ma a Hold.`,
+ 
+`Minden Egész eltörött,
+Minden láng csak részekben lobban,
+Minden szerelem darabokban,
+Minden Egész eltörött.`,
+ 
+`Fut velem egy rossz szekér,
+Utána mintha jajszó szállna,
+Félig mély csönd és félig lárma,
+Fut velem egy rossz szekér.`
+        ]
+    },
+    {
+        title: "A lírikus epilógja",
+        author: "Babits Mihály",
+        recite: false,
+        active: document.getElementById("poems-checkbox-2-10"),
+        verses: [
+`Csak én birok versemnek hőse lenni,
+első s utolsó mindenik dalomban:
+a mindenséget vágyom versbe venni,
+de még tovább magamnál nem jutottam.`,
+ 
+`S már azt hiszem: nincs rajtam kívül semmi,
+de hogyha van is, Isten tudja hogy' van?
+Vak dióként dióban zárva lenni
+s törésre várni beh megundorodtam.`,
+ 
+`Bűvös körömből nincsen mód kitörnöm,
+csak nyílam szökhet rajta át: a vágy -
+de jól tudom, vágyam sejtése csalfa.`,
+ 
+`Én maradok: magam számára börtön,
+mert én vagyok az alany és a tárgy,
+jaj én vagyok az ómega s az alfa.`
+        ]
+    },
+    {
+        title: "Jónás imája",
+        author: "Babits Mihály",
+        recite: true,
+        active: document.getElementById("poems-checkbox-1-16"),
+        verses: [
+`Hozzám már hűtlen lettek a szavak,
+vagy én lettem mint túláradt patak
+oly tétova céltalan parttalan
+s ugy hordom régi sok hiú szavam
+mint a tévelygő ár az elszakadt
+sövényt jelzőkarókat gátakat.`,
+ 
+`Óh bár adna a Gazda patakom
+sodrának medret, biztos útakon
+vinni tenger felé, bár verseim
+csücskére Tőle volna szabva rim
+előre kész, s mely itt áll polcomon,
+szent Bibliája lenne verstanom,
+hogy ki mint Jónás, rest szolgája, hajdan
+bujkálva, ...`,
+ 
+`...később mint Jónás a Halban
+leszálltam a kinoknak eleven
+süket és forró sötétjébe, nem
+három napra, de három hóra, három
+évre vagy évszázadra, megtaláljam,
+mielőtt egy mégvakabb és örök
+Cethal szájában végkép eltünök, ...`,
+ 
+`...a régi hangot s, szavaim hibátlan
+hadsorba állván, mint Ő sugja, bátran
+szólhassak s mint rossz gégémből telik
+és ne fáradjak bele estelig
+vagy míg az égi és ninivei hatalmak
+engedik hogy beszéljek s meg ne haljak.`
+        ]
+    },
+    {
+        title: "Hajnali részegség",
+        author: "Kosztilányi Dezső",
+        recite: false,
+        active: document.getElementById("poems-checkbox-2-11"),
+        verses: [
+`Elmondanám ezt néked. Ha nem unnád.
+Múlt éjszaka - háromkor - abbahagytam
+a munkát.
+Le is feküdtem. Ám a gép az agyban
+zörgött tovább, kattogva-zúgva nagyban,
+csak forgolódtam dühösen az ágyon,
+nem jött az álom.
+Hívtam pedig, így és úgy, balga szókkal,
+százig olvasva s mérges altatókkal...`,
+ 
+`...Az, amit irtam, lázasan meredt rám.
+Izgatta szívem negyven cigarettám.
+Meg más egyéb is. A fekete. Minden.
+Hát fölkelek, nem bánom az egészet,
+sétálgatok szobámba le- föl, ingben,
+köröttem a családi fészek,
+a szájakon lágy, álombeli mézek
+s amint botorkálok itt, mint részeg,
+az ablakon kinézek.`,
+ 
+`Várj csak, hogy is kezdjem, hogy magyarázzam?
+Te ismered a házam
+s ha emlékezni tudsz a
+a hálószobámra, azt is tudhatod,
+milyen szegényes, elhagyott
+ilyenkor innen a Logodi-utca,
+ahol lakom...`,
+ 
+`...Tárt otthonokba látsz az ablakon.
+Az emberek feldöntve és vakon
+vízszintesen feküsznek
+s megforduló szemük kancsítva néz szét
+ködébe csalfán csillogó eszüknek,
+mert a mindennapos agy-vérszegénység
+borult reájuk...`,
+ 
+`...Mellettük a cipőjük, a ruhájuk
+s ők egy szobába zárva, mint dobozba,
+melyet ébren szépítnek álmodozva,
+de - mondhatom - ha igy reá meredhetsz,
+minden lakás olyan, akár a ketrec,
+Egy keltőóra átketyeg a csöndből,
+sántítva baktat, nyomba felcsörömpöl...`,
+ 
+`...és az alvóra szól a
+harsány riasztó: «ébredj a valóra».
+A ház is alszik, holtan és bután,
+mint majd száz év után,
+ha összeomlik, gyom virít alóla
+s nem sejti senki róla,
+hogy otthonunk volt-e, vagy állat óla.`,
+ 
+`De fönn, barátom, ott fönn a derűs ég,
+valami tiszta, fényes nagyszerűség,
+reszketve és szilárdul, mint a hűség.
+Az égbolt,
+egészen úgy, mint hajdanába rég volt,
+mint az anyám paplanja, az a kék folt,
+mint a vízfesték, mely írkámra szétfolyt,
+s a csillagok
+lélekző lelke csöndesen ragyog
+a langyos őszi
+éjjelbe, mely a hideget előzi,
+kimondhatatlan messze s odaát,
+ők, akik nézték Hannibál hadát
+s most néznek engem, aki ide estem
+és állok egy ablakba, Budapesten.`,
+ 
+`Én nem tudom, mi történt vélem ekkor,
+de úgy rémlett, egy szárny suhan felettem
+s felém hajol az, amit eltemettem
+rég, a gyerekkor.`,
+ 
+`Olyan sokáig
+bámultam az égbolt gazdag csodáit,
+hogy már pirkadt is keleten s a szélben
+a csillagok szikrázva, észrevétlen
+meg-meglibegtek és távolba roppant
+tűzcsóva lobbant,
+egy mennyei kastély kapuja tárult,
+körötte láng gyult,
+valami rebbent,
+oszolni kezdett a vendégsereg fent....`,
+ 
+`...a hajnali homály mély
+árnyékai közé lengett a báléj,
+künn az előcsarnok fényárban úszott,
+a házigazda a lépcsőn bucsúzott,
+előkelő úr, az ég óriása,
+a bálterem hatalmas glóriása
+s mozgás riadt, csilingelés, csodás,
+halk női suttogás,
+mint amikor már vége van a bálnak
+s a kapusok kocsikért kiabálnak.`,
+ 
+`Egy csipkefátyol
+látszott, amint a távol
+homályból
+gyémántosan aláfoly
+egy messze kéklő,
+pazar belépő,
+melyet magára ölt egy drága, szép nő
+és rajt egy ékkő
+behintve fénnyel ezt a néma békét...`,
+ 
+`...a halovány ég túlvilági kékét,
+vagy tán egy angyal, aki szűzi,
+szép mozdulattal csillogó fejékét
+hajába tűzi
+és az álomnál csendesebben
+egy arra ringó,
+könnyűcske hintó
+mélyébe lebben
+s tovább robog kacér mosollyal ebben.
+aztán amíg vad paripái futnak
+a farsangosan-lángoló Tejutnak
+arany konfetti-záporába sok száz
+bazár között, patkójuk fölsziporkáz.`,
+ 
+`Szájtátva álltam
+s a boldogságtól föl-fölkiabáltam,
+az égbe bál van, minden este bál van
+és fölvilágolt mély értelme ennek
+a régi, nagy titoknak, hogy a mennynek
+tündérei hajnalba hazamennek
+fényes körútjain a végtelennek.`,
+ 
+`Virradtig
+maradtam így és csak bámultam addig.
+Egyszerre szóltam: hát te mit kerestél
+ezen a földön, mily silány regéket,
+miféle ringyók rabságába estél,
+mily kézirat volt fontosabb tenéked,
+hogy annyi nyár múlt, annyi sok deres tél
+és annyi rest éj
+s csak most tünik szemedbe ez az estély?`,
+ 
+`Ötven,
+jaj ötven éve - lelkem visszadöbben -
+halottjaim is itt-ott, egyre többen -
+jaj, ötven éve tündököl fölöttem
+ez a sok élő, fényes, égi szomszéd,
+ki látja, hogy a könnyem morzsolom szét.
+Szóval bevallom néked, megtörötten
+földig borultam s mindezt megköszöntem.`,
+ 
+`Nézd csak, tudom, hogy nincsen mibe hinnem
+s azt is tudom, hogy el kell mennem innen.
+de pattanó szivem feszitve húrnak,
+dalolni kezdtem ekkor azúrnak,
+annak, kiről nem tudja senki, hol van,
+annak, kit nem lelek se most, se holtan.
+Bizony, ma már, hogy izmaim lazúlnak,
+úgy érzem én, barátom, hogy a porban,
+hol lelkek és göröngyök közt botoltam,
+mégis csak egy nagy, ismeretlen úrnak
+vendége voltam.`
+        ]
+    },
+    {
+        title: "Reménytelenül",
+        author: "József Attila",
+        recite: false,
+        active: document.getElementById("poems-checkbox-2-12"),
+        verses: [
+`Lassan, tünődve
+ 
+Az ember végül homokos,
+szomorú, vizes síkra ér,
+szétnéz merengve és okos
+fejével biccent, nem remél.`,
+ 
+`Én is így próbálok csalás
+nélkül szétnézni könnyedén.
+Ezüstös fejszesuhanás
+játszik a nyárfa levelén.
+ 
+A semmi ágán ül szivem,
+kis teste hangtalan vacog,
+köréje gyűlnek szeliden
+s nézik, nézik a csillagok.`,
+ 
+`Vas-színű égboltban...
+ 
+Vas-színű égboltban forog
+a lakkos, hűvös dinamó.
+Óh, zajtalan csillagzatok!
+Szikrát vet fogam közt a szó - -`,
+ 
+`Bennem a mult hull, mint a kő
+az űrön által hangtalan.
+Elleng a néma, kék idő.
+Kard éle csillan: a hajam - -
+ 
+Bajszom mint telt hernyó terül
+elillant ízű számra szét.
+Fáj a szívem, a szó kihül.
+Dehát kinek is szólanék - -`
+        ]
+    },
+    {
+        title: "Óda",
+        author: "József Attila",
+        recite: false,
+        active: document.getElementById("poems-checkbox-2-13"),
+        verses: [
+`Itt ülök csillámló sziklafalon.
+Az ifju nyár
+könnyű szellője, mint egy kedves
+vacsora melege, száll.
+Szoktatom szívemet a csendhez.
+Nem oly nehéz -
+idesereglik, ami tovatűnt,
+a fej lehajlik és lecsüng
+a kéz.`,
+ 
+`Nézem a hegyek sörényét -
+homlokod fényét
+villantja minden levél.
+Az úton senki, senki,
+látom, hogy meglebbenti
+szoknyád a szél.
+És a törékeny lombok alatt
+látom előrebiccenni hajad,
+megrezzenni lágy emlőidet és
+- amint elfut a Szinva-patak -
+ím újra látom, hogy fakad
+a kerek fehér köveken,
+fogaidon a tündér nevetés.`,
+ 
+`Óh mennyire szeretlek téged,
+ki szóra bírtad egyaránt
+a szív legmélyebb üregeiben
+cseleit szövő, fondor magányt
+s a mindenséget.
+Ki mint vízesés önnön robajától,
+elválsz tőlem és halkan futsz tova,
+míg én, életem csúcsai közt, a távol
+közelében, zengem, sikoltom,
+verődve földön és égbolton,
+hogy szeretlek, te édes mostoha!`,
+ 
+`Szeretlek, mint anyját a gyermek,
+mint mélyüket a hallgatag vermek,
+szeretlek, mint a fényt a termek,
+mint lángot a lélek, test a nyugalmat!
+Szeretlek, mint élni szeretnek
+halandók, amíg meg nem halnak.`,
+ 
+`Minden mosolyod, mozdulatod, szavad,
+őrzöm, mint hulló tárgyakat a föld.
+Elmémbe, mint a fémbe a savak,
+ösztöneimmel belemartalak,
+te kedves, szép alak,
+lényed ott minden lényeget kitölt.`,
+ 
+`A pillanatok zörögve elvonulnak,
+de te némán ülsz fülemben.
+Csillagok gyúlnak és lehullnak,
+de te megálltál szememben.
+Ízed, miként a barlangban a csend,
+számban kihűlve leng
+s a vizes poháron kezed,
+rajta a finom erezet,
+föl-földereng.`,
+ 
+`Óh, hát miféle anyag vagyok én,
+hogy pillantásod metsz és alakít?
+Miféle lélek és miféle fény
+s ámulatra méltó tünemény,
+hogy bejárhatom a semmiség ködén
+termékeny tested lankás tájait?
+ 
+S mint megnyílt értelembe az ige,
+alászállhatok rejtelmeibe!...`,
+ 
+`Vérköreid, miként a rózsabokrok,
+reszketnek szüntelen.
+Viszik az örök áramot, hogy
+orcádon nyíljon ki a szerelem
+s méhednek áldott gyümölcse legyen.
+Gyomrod érzékeny talaját
+a sok gyökerecske át meg át
+hímezi, finom fonalát
+csomóba szőve, bontva bogját -
+hogy nedűid sejtje gyűjtse sok raját
+s lombos tüdőd szép cserjéi saját
+dicsőségüket susogják!`,
+ 
+`Az örök anyag boldogan halad
+benned a belek alagútjain
+és gazdag életet nyer a salak
+a buzgó vesék forró kútjain!
+Hullámzó dombok emelkednek,
+csillagképek rezegnek benned,
+tavak mozdulnak, munkálnak gyárak,
+sürög millió élő állat,
+bogár,
+hinár,
+a kegyetlenség és a jóság;
+nap süt, homályló északi fény borong -
+tartalmaidban ott bolyong
+az öntudatlan örökkévalóság.`,
+ 
+`Mint alvadt vérdarabok,
+úgy hullnak eléd
+ezek a szavak.
+A lét dadog,
+csak a törvény a tiszta beszéd.
+De szorgos szerveim, kik újjászülnek
+napról napra, már fölkészülnek,
+hogy elnémuljanak.`,
+ 
+`De addig mind kiált -
+Kit két ezer millió embernek
+sokaságából kiszemelnek,
+te egyetlen, te lágy
+bölcső, erős sír, eleven ágy,
+fogadj magadba!...`,
+ 
+`(Milyen magas e hajnali ég!
+Seregek csillognak érceiben.
+Bántja szemem a nagy fényesség.
+El vagyok veszve, azt hiszem.
+Hallom, amint fölöttem csattog,
+ver a szivem.)`,
+ 
+`(Visz a vonat, megyek utánad,
+talán ma még meg is talállak,
+talán kihűl e lángoló arc,
+talán csendesen meg is szólalsz:
+ 
+Csobog a langyos víz, fürödj meg!
+Ime a kendő, törülközz meg!
+Sül a hús, enyhítse étvágyad!
+Ahol én fekszem, az az ágyad.)`
+        ]
+    },
+    {
+        title: "Valaki jár a fák hegyén",
+        author: "Kányádi Sándor",
+        recite: true,
+        active: document.getElementById("poems-checkbox-1-17"),
+        verses: [
+`valaki jár a fák hegyén
+ki gyújtja s oltja csillagod
+csak az nem fél kit a remény
+már végképp magára hagyott`,
+ 
+`én félek még reménykedem
+ez a megtartó irgalom
+a gondviselő félelem
+kísért eddigi utamon`,
+ 
+`valaki jár a fák hegyén
+vajon amikor zuhanok
+meggyújt-e akkor még az én
+tüzemnél egy új csillagot`,
+ 
+`vagy engem is egyetlenegy
+sötétlő maggá összenyom
+s nem villantja föl lelkemet
+egy megszülető csillagon`,
+ 
+`valaki jár a fák hegyén
+mondják úr minden porszemen
+mondják hogy maga a remény
+mondják maga a félelem`
+        ]
+    },
+    {
+        title: "Halotti beszéd a hulló leveleknek",
+        author: "Reményik Sándor",
+        recite: false,
+        active: document.getElementById("poems-checkbox-2-14"),
+        verses: [
+`Látjátok feleim, hogy mik vagyunk?
+Bizony bíbor és bronz és arany
+És örökkévaló szent szépség vagyunk.
+Ahogy halódunk, hullunk nesztelen:
+Bizony, e világ dőre, esztelen
+Pompájánál nagyobb pompa vagyunk...`,
+ 
+`...Nem történhetik velünk semmi sem,
+Mi megronthatná szép, igaz-magunk.
+Míg a fán vagyunk: napban ragyogunk
+S ha alászállunk: vár a hűs avar,
+Testvér-levél testvér-lombot takar,
+Ott is otthon vagyunk...`,
+ 
+`...Ha megkeményedünk és megfagyunk:
+Zuzmara csillog rajtunk: hermelin.
+Bíbor után a fehér hermelin.
+Bizony szépek vagyunk.
+Látjátok feleim, hogy mik vagyunk?
+Ha végre földanyánk része leszünk,
+Ott is szépek leszünk,
+Ott is otthon leszünk...`,
+ 
+`...És árvaság csak egy van, feleim:
+Az erdőn kívül lenni.
+Otthontalannak, hazátlannak lenni.
+Nagyvárosok rideg utcakövén
+A széltől sepertetni.
+Sok más szeméttel összekevertetni.
+Árvaság csak ez egy van, feleim.
+S amíg itthon vagyunk:
+Bizony bíbor és bronz és arany
+És örökkévaló szent szépség vagyunk.`
+        ]
+    },
+    {
+        title: "Hetedik ecloga",
+        author: "Radnóti Miklós",
+        recite: false,
+        active: document.getElementById("poems-checkbox-2-15"),
+        verses: [
+`Látod-e, esteledik s a szögesdróttal beszegett, vad
+tölgykerités, barakk oly lebegő, felszívja az este.
+Rabságunk keretét elereszti a lassu tekintet
+és csak az ész, csak az ész, az tudja, a drót feszülését.
+Látod-e drága, a képzelet itt, az is így szabadul csak,
+megtöretett testünket az álom, a szép szabadító
+oldja fel és a fogolytábor hazaindul ilyenkor...`,
+ 
+`...Rongyosan és kopaszon, horkolva repülnek a foglyok,
+Szerbia vak tetejéről búvó otthoni tájra.
+Búvó otthoni táj! Ó, megvan-e még az az otthon?
+Bomba sem érte talán? s van, mint amikor bevonultunk?
+És aki jobbra nyöszörg, aki balra hever, hazatér-e?
+Mondd, van-e ott haza még, ahol értik e hexametert is? ...`,
+ 
+`...Ékezetek nélkül, csak sort sor alá tapogatva,
+úgy irom itt a homályban a verset, mint ahogy élek,
+vaksin, hernyóként araszolgatván a papíron;
+zseblámpát, könyvet, mindent elvettek a Lager
+őrei s posta se jön, köd száll le csupán barakunkra.
+Rémhirek és férgek közt él itt francia, lengyel,
+hangos olasz, szakadár szerb, méla zsidó a hegyekben,
+szétdarabolt lázas test s mégis egy életet él itt, -
+jóhírt vár, szép asszonyi szót, szabad emberi sorsot,
+s várja a véget, a sűrü homályba bukót, a csodákat...`,
+ 
+`...Fekszem a deszkán, férgek közt fogoly állat, a bolhák
+ostroma meg-megujúl, de a légysereg elnyugodott már.
+Este van, egy nappal rövidebb, lásd, ujra a fogság
+és egy nappal az élet is. Alszik a tábor. A tájra
+rásüt a hold s fényében a drótok ujra feszülnek,
+s látni az ablakon át, hogy a fegyveres őrszemek árnya
+lépdel a falra vetődve az éjszaka hangjai közben...`,
+ 
+`...Alszik a tábor, látod-e drága, suhognak az álmok,
+horkan a felriadó, megfordul a szűk helyen és már
+ujra elalszik s fénylik az arca. Csak én ülök ébren,
+féligszítt cigarettát érzek a számban a csókod
+íze helyett és nem jön az álom, az enyhetadó, mert
+nem tudok én meghalni se, élni se nélküled immár.`
+        ]
+    },
+    {
+        title: "Március",
+        author: "Áprily Lajos",
+        recite: false,
+        active: document.getElementById("poems-checkbox-2-16"),
+        verses: [
+`A nap tüze, látod,
+a fürge diákot
+a hegyre kicsalta: a csúcsra kiállt.
+Csengve, nevetve
+kibuggyan a kedve
+s egy ős evoét a fénybe kiált.`,
+ 
+`Régi, kiszáradt
+tó vize árad,
+néma kutakban a víz kibuzog.
+Zeng a picinyke
+szénfejű cinke
+víg dithyrambusa: dactilusok.`,
+ 
+`Selymit a barka
+már kitakarta,
+sárga virágját bontja a som.
+Fut, fut az áram
+a déli sugárban
+s hökken a hó a hideg havason.`,
+ 
+`Barna patakja
+napra kacagva
+a lomha Marosba csengve siet.
+Zeng a csatorna,
+zeng a hegy orma,
+s zeng - ugye zeng, ugye zeng a szíved?`
+        ]
+    },
+    {
+        title: "Ki viszi át a szerelmet",
+        author: "Nagy László",
+        recite: true,
+        active: document.getElementById("poems-checkbox-1-18"),
+        verses: [
+`Létem ha végleg lemerűlt,
+ki imád tücsök-hegedűt?
+Lángot ki lehel deres ágra?
+Ki feszül föl a szivárványra?
+Lágy hantú mezővé a szikla-
+csípőket ki öleli sírva?`,
+ 
+`Ki becéz falban megeredt
+hajakat, verőereket?
+S dúlt hiteknek kicsoda állít
+káromkodásból katedrálist?
+Létem ha végleg lemerűlt,
+ki rettenti a keselyűt!
+S ki viszi át fogában tartva
+a Szerelmet a túlsó partra!`
+        ]
     }
 ];
 
@@ -860,6 +1625,7 @@ Bocsát le a föld mélyibe.`
 const poemContainer = document.getElementById('poem-container');
 const modeToggle = document.getElementById('typing-mode');
 const reciteModeToggle = document.getElementById('recite-mode');
+const perfectGrammarModeToggle = document.getElementById('perfect-grammar-mode');
 const titleInput = document.getElementById('title-input');
 const authorInput = document.getElementById('author-input');
 const titleDropdown = document.getElementById('title-dropdown');
@@ -872,6 +1638,16 @@ const answerBoxes = document.getElementById('answer-boxes');
 const nextVerseGroup = document.getElementById('next-verse-group');
 const nextVerseLabel = document.getElementById('next-verse-label');
 
+const settingsButton = document.getElementById('settings-button');
+const overlay = document.getElementById('overlay');
+const settingsModal = document.getElementById('settings-modal');
+const doneButton = document.getElementById('done-button');
+const poemsButton = document.getElementById('poems-button');
+const poemsModal = document.getElementById('poems-modal');
+const poemsModalFlexdiv = document.getElementById('poems_main_div');
+const poemsCheckbox1 = document.getElementById('poems-checkbox-1-0');
+const poemsCheckbox2 = document.getElementById('poems-checkbox-2-0');
+
 let areAnswersCorrect = []
 
 // State variables
@@ -879,6 +1655,7 @@ let currentPoem = null;
 let poemIndex = -1;
 let verseIndex = -1;
 let reciteModeEnabled = true;
+let requirePerfectMatch = perfectGrammarModeToggle.checked
 
 // Function to initialize the page
 function initialize() {
@@ -923,7 +1700,7 @@ function populateDropdowns() {
 
 // Function to toggle typing mode
 function toggleMode() {
-    if (modeToggle.checked) {
+    if (!modeToggle.checked) {
         // Typing mode is on
         titleInput.style.display = 'block';
         authorInput.style.display = 'block';
@@ -953,17 +1730,20 @@ function loadNewPoem() {
     feedbackContainer.textContent = '';
     feedbackContainer.style.display = 'none';
 
-    reciteModeEnabled = reciteModeToggle.checked
+    reciteModeEnabled = !reciteModeToggle.checked
 
     nextButton.style.display = 'none';
     submitButton.style.display = 'inline-block';
 
     // Select a random poem
     poemIndex = Math.floor(Math.random() * poems.length);
+    while (!poems[poemIndex].active.checked){
+        poemIndex = Math.floor(Math.random() * poems.length);
+    }
     currentPoem = poems[poemIndex];
 
     // Display poem in poem container
-    if (currentPoem.recite && reciteModeToggle.checked) {
+    if (currentPoem.recite && !reciteModeToggle.checked) {
         
         if (currentPoem.verses.length > 1){
             // Display a random verse for recitation
@@ -1010,7 +1790,7 @@ function displayData() {
 function displayInputBoxes(show){
     if (show){
         answerBoxes.style.display = "block";
-        if (modeToggle.checked) {
+        if (!modeToggle.checked) {
             // Typing mode is on
             titleInput.style.display = 'block';
             authorInput.style.display = 'block';
@@ -1033,7 +1813,7 @@ function checkInputBoxes() {
     let isTitleCorrect = false;
     let isAuthorCorrect = false;
 
-    if (modeToggle.checked) {
+    if (!modeToggle.checked) {
         // Typing mode is on
         const title = titleInput.value.trim();
         const author = authorInput.value.trim();
@@ -1074,14 +1854,38 @@ function checkInputBoxes() {
     return [isTitleCorrect, isAuthorCorrect]
 }
 
+function sanitize(grammartext){
+    let grammarChars = [" ", ",", ".", ";", ":", "?", "!", "-", "\""]
+    let i = 0
+
+    do {
+        grammartext = grammartext.replaceAll(grammarChars[i], "")
+        i++
+    }
+    while (i < grammarChars.length)
+    
+    return grammartext.toLowerCase()
+}
+
+// Check if poem's next verse correct
 function checkTextarea(nextVerse) {
     let isNextVerseCorrect = false;
 
-    if (nextVerseTextarea.value.trim() === nextVerse) {
-        isNextVerseCorrect = true;
-        nextVerseTextarea.style.backgroundColor = 'lightgreen';
-    } else {
-        nextVerseTextarea.style.backgroundColor = 'lightcoral';
+    if (requirePerfectMatch){
+        if (nextVerseTextarea.value.trim() === nextVerse) {
+            isNextVerseCorrect = true;
+            nextVerseTextarea.style.backgroundColor = 'lightgreen';
+        } else {
+            nextVerseTextarea.style.backgroundColor = 'lightcoral';
+        }
+    }
+    else{
+        if (sanitize(nextVerseTextarea.value) === nextVerse) {
+            isNextVerseCorrect = true;
+            nextVerseTextarea.style.backgroundColor = 'lightgreen';
+        } else {
+            nextVerseTextarea.style.backgroundColor = 'lightcoral';
+        }
     }
 
     return isNextVerseCorrect
@@ -1162,9 +1966,91 @@ function resetInputBackgroundColors() {
     authorDropdown.style.backgroundColor = '';
 }
 
+
+
+function showSettings() {
+    overlay.style.display = 'block';
+    settingsModal.style.display = 'block';
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+        settingsModal.style.opacity = '1';
+    }, 10);
+}
+
+function showPoems() {
+    overlay.style.display = 'block';
+    poemsModal.style.display = 'block';
+    poemsModalFlexdiv.style.display = 'flex';
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+        poemsModal.style.opacity = '1';
+    }, 10);
+}
+
+function hideSettingsPoems() {
+    overlay.style.opacity = '0';
+    settingsModal.style.opacity = '0';
+    poemsModal.style.opacity = '0';
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        settingsModal.style.display = 'none';
+        poemsModal.style.display = 'none';
+    }, 300);
+}
+
+function toggleAll1() {
+    document.getElementById('poems-checkbox-1-1').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-2').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-3').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-4').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-5').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-6').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-7').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-8').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-9').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-10').checked = poemsCheckbox1.checked
+    
+    document.getElementById('poems-checkbox-1-11').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-12').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-13').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-14').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-15').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-16').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-17').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-18').checked = poemsCheckbox1.checked
+}
+
+function toggleAll2() {
+    document.getElementById('poems-checkbox-2-1').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-2').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-3').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-4').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-5').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-6').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-7').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-8').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-9').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-10').checked = poemsCheckbox2.checked
+    
+    document.getElementById('poems-checkbox-2-11').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-12').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-13').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-14').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-15').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-16').checked = poemsCheckbox2.checked
+}
+
 // Event listeners
 document.addEventListener('DOMContentLoaded',initialize);
 
 nextButton.addEventListener('click', loadNewPoem);
 modeToggle.addEventListener('change', toggleMode);
 document.getElementById('quiz-form').addEventListener('submit', checkAnswer);
+
+settingsButton.addEventListener('click', showSettings);
+poemsButton.addEventListener('click', showPoems);
+overlay.addEventListener('click', hideSettingsPoems);
+doneButton.addEventListener('click', hideSettingsPoems);
+
+document.getElementById('poems-checkbox-1-0').addEventListener('change', toggleAll1)
+document.getElementById('poems-checkbox-2-0').addEventListener('change', toggleAll2)
