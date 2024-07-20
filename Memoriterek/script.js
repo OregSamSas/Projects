@@ -1076,19 +1076,18 @@ sodrának medret, biztos útakon
 vinni tenger felé, bár verseim
 csücskére Tőle volna szabva rim
 előre kész, s mely itt áll polcomon,
-szent Bibliája lenne verstanom,
-hogy ki mint Jónás, rest szolgája, hajdan
-bujkálva, ...`,
- 
-`...később mint Jónás a Halban
+szent Bibliája lenne verstanom, ...`,
+
+`...hogy ki mint Jónás, rest szolgája, hajdan
+bujkálva, később mint Jónás a Halban
 leszálltam a kinoknak eleven
 süket és forró sötétjébe, nem
 három napra, de három hóra, három
-évre vagy évszázadra, megtaláljam,
-mielőtt egy mégvakabb és örök
-Cethal szájában végkép eltünök, ...`,
- 
-`...a régi hangot s, szavaim hibátlan
+évre vagy évszázadra, megtaláljam,`,
+
+`mielőtt egy mégvakabb és örök
+Cethal szájában végkép eltünök,
+a régi hangot s, szavaim hibátlan
 hadsorba állván, mint Ő sugja, bátran
 szólhassak s mint rossz gégémből telik
 és ne fáradjak bele estelig
@@ -1863,7 +1862,7 @@ function checkInputBoxes() {
 }
 
 function sanitize(grammartext){
-    let grammarChars = [" ", ",", ".", ";", ":", "?", "!", "-", "\""]
+    let grammarChars = [" ", ",", ".", ";", ":", "?", "!", "-", "\"", "\n", "\\n"]
     let i = 0
 
     do {
@@ -1872,7 +1871,7 @@ function sanitize(grammartext){
     }
     while (i < grammarChars.length)
     
-    return grammartext.toLowerCase()
+    return grammartext.toLowerCase().replaceAll("á", "a").replaceAll("é", "e").replaceAll("í", "i").replaceAll("ó", "o").replaceAll("ö", "o").replaceAll("ő", "o").replaceAll("ú", "u").replaceAll("ü", "u").replaceAll("ű", "u")
 }
 
 // Check if poem's next verse correct
