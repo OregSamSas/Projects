@@ -8,11 +8,22 @@ dataXHR.onload = (e) => {
 };
 dataXHR.send("");
 
+// Default colour scheme
+if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    toggleDarkMode();
+}
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
+    if ((e.matches && document.getElementById('darkmode') == null) || (!e.matches && document.getElementById('darkmode') != null)) {
+        toggleDarkMode();
+    }
+});
+
 // DOM Elements
 const poemContainer = document.getElementById('poem-container');
 const modeToggle = document.getElementById('typing-mode');
 const reciteModeToggle = document.getElementById('recite-mode');
 const gaptextModeToggle = document.getElementById('gaptext-mode');
+const perfectGrammarModeToggle = document.getElementById('perfect-grammar-mode');
 const titleInput = document.getElementById('title-input');
 const authorInput = document.getElementById('author-input');
 const titleDropdown = document.getElementById('title-dropdown');
@@ -24,6 +35,17 @@ const nextButton = document.getElementById('next-button');
 const answerBoxes = document.getElementById('answer-boxes');
 const nextVerseGroup = document.getElementById('next-verse-group');
 const nextVerseLabel = document.getElementById('next-verse-label');
+
+const darkModeButton = document.getElementById('dark-mode-button');
+const settingsButton = document.getElementById('settings-button');
+const overlay = document.getElementById('overlay');
+const settingsModal = document.getElementById('settings-modal');
+const doneButton = document.getElementById('done-button');
+const poemsButton = document.getElementById('poems-button');
+const poemsModal = document.getElementById('poems-modal');
+const poemsModalFlexdiv = document.getElementById('poems_main_div');
+const poemsCheckbox1 = document.getElementById('poems-checkbox-1-0');
+const poemsCheckbox2 = document.getElementById('poems-checkbox-2-0');
 
 // Global vars
 let verse = new String;
@@ -38,6 +60,7 @@ let currentPoem = null;
 let poemIndex = -1;
 let verseIndex = -1;
 let reciteModeEnabled = true;
+let requirePerfectMatch = perfectGrammarModeToggle.checked
 let gaptextModeEnabled = true;
 
 // Function to initialize the page
@@ -45,6 +68,7 @@ function initialize() {
     nextButton.style.display = 'none';
     populateDropdowns();
     loadNewPoem();
+    fixWrapperOverflow();
 }
 
 // Function to populate dropdowns with unique poem titles and authors in alphabetical order
@@ -83,7 +107,7 @@ function populateDropdowns() {
 
 // Function to toggle typing mode
 function toggleMode() {
-    if (modeToggle.checked) {
+    if (!modeToggle.checked) {
         // Typing mode is on
         titleInput.style.display = 'block';
         authorInput.style.display = 'block';
@@ -166,12 +190,16 @@ function makeGapsInVerse(verse) {
             let inputField = createInputWithTextWidth(verseArray[line][random])
             inputField.className = "verseinput";
             inputField.type = "text";
-            inputField.setAttribute("title", verseArray[line][random]);
+            inputField.setAttribute("sol", verseArray[line][random]);
+            if (verseArray[line][random].length < 1) {
+                inputField = newSpan("", "");
+                gapNumber--;
+            }
             let tempLine = [
                 newSpan(verseArray[line].slice(0, random).join(' '), "versespan"),
                 inputField,
                 newSpan(verseArray[line].slice(random + 1, verseArray[line].length).join(' '), "versespan")
-            ]
+            ];
             verseArray[line] = tempLine;
             console.log(verseArray[line]);
         }
@@ -188,8 +216,7 @@ function makeGapsInVerse(verse) {
     return verseDocSet;
 }
 
-// Function to load a new poem
-function loadNewPoem() {
+function resetQuiz() {
     // Delete previously displayed verse and reset previous state
     poemContainer.innerHTML = "";
     resetInputBackgroundColors();
@@ -205,56 +232,109 @@ function loadNewPoem() {
     feedbackContainer.textContent = '';
     feedbackContainer.style.display = 'none';
 
-    reciteModeEnabled = reciteModeToggle.checked;
+    // Enable inputs
+    titleInput.disabled = false;
+    authorInput.disabled = false;
+    titleDropdown.disabled = false;
+    authorDropdown.disabled = false;
+    nextVerseTextarea.disabled = false;
+
+    reciteModeEnabled = !reciteModeToggle.checked;
     gaptextModeEnabled = gaptextModeToggle.checked;
 
     nextButton.style.display = 'none';
     submitButton.style.display = 'inline-block';
+}
 
-    // Select a random poem
-    poemIndex = Math.floor(Math.random() * poems.length);
-    currentPoem = poems[poemIndex];
+// Function to load a new poem
+function loadNewPoem() {
+    let poemschecked = poems.filter(poem => document.getElementById(poem.active).checked);
 
-    // Display poem in poem container
-    if (currentPoem.recite && reciteModeEnabled) {
+    if (poemschecked.length > 0) {
+        resetQuiz();
 
-        if (Math.random() > 0.6 && gaptextModeEnabled) {
-            // Display a gappy verse with inputs for missing words to fill in/out
-            displayPoem(true);
-            displayInputBoxes(true);
-        } else {
-            gaptextModeEnabled = false;
-            if (currentPoem.verses.length > 1) {
-                // Display a random verse for recitation (next stanza etc.)
-                displayPoem();
+        // Select a random poem which is selected in settings
+        poemIndex = Math.floor(Math.random() * poems.length);
+        while (!document.getElementById(poems[poemIndex].active).checked) {
+            poemIndex = Math.floor(Math.random() * poems.length);
+        }
+        currentPoem = poems[poemIndex];
+
+        // Display poem in poem container
+        if (currentPoem.recite && reciteModeEnabled) {
+
+            if (Math.random() > 0.6 && gaptextModeEnabled) {
+                // Display a gappy verse with inputs for missing words to fill in/out
+                displayPoem(true);
                 displayInputBoxes(true);
             } else {
-                // Display a random author and title for recitation (if it has only 1 stanza/group of lines)
-                displayData();
-                displayInputBoxes(false);
+                gaptextModeEnabled = false;
+                if (currentPoem.verses.length > 1) {
+                    // Display a random verse for recitation (next stanza etc.)
+                    displayPoem();
+                    displayInputBoxes(true);
+                } else {
+                    // Display a random author and title for recitation (if it has only 1 stanza/group of lines)
+                    displayData();
+                    displayInputBoxes(false);
+                }
+                nextVerseGroup.style.display = 'flex';
+        
+                if (currentPoem.verses.length === 1) {
+                    nextVerseLabel.textContent = "Vers:";
+                }
+                else if (verseIndex + 1 == (currentPoem.verses.length)) {
+                    nextVerseLabel.textContent = "Első versszak:";
+                }
+                else {
+                    nextVerseLabel.textContent = "Következő versszak:";
+                }
             }
-            nextVerseGroup.style.display = 'block';
-    
-            if (currentPoem.verses.length === 1) {
-                nextVerseLabel.textContent = "Vers:";
-            }
-            else if (verseIndex + 1 == (currentPoem.verses.length)) {
-                nextVerseLabel.textContent = "Első versszak:";
-            }
-            else {
-                nextVerseLabel.textContent = "Következő versszak:";
-            }
+
+        } else {
+            gaptextModeEnabled = false;
+            // Display verse extract, ask for title and author
+            displayPoem();
+            displayInputBoxes(true);
         }
 
+        // Hide submit button and show next button
+        submitButton.style.display = 'inline-block';
+        nextButton.style.display = 'none';
     } else {
-        // Display verse extract, ask for title and author
-        displayPoem();
-        displayInputBoxes(true);
+        gaptextModeEnabled = false;
+        poemContainer.innerHTML = "";
+        currentPoem = null;
+        displayWarning("Nincs kiválasztott vers!");
     }
+}
+
+function displayWarning(txt) {
+    let warningDiv = document.createElement("div");
+    warningDiv.style.color = "red";
+    warningDiv.style.fontWeight = "bold";
+    poemContainer.appendChild(warningDiv);
+    warningDiv.textContent = txt;
+    disableInputs(true);
 
     // Hide submit button and show next button
-    submitButton.style.display = 'inline-block';
-    nextButton.style.display = 'none';
+    submitButton.style.display = 'none';
+    nextButton.style.display = 'inline-block';
+}
+
+function disableInputs(removecontent = false) {
+    titleInput.disabled = true;
+    authorInput.disabled = true;
+    titleDropdown.disabled = true;
+    authorDropdown.disabled = true;
+    nextVerseTextarea.disabled = true;
+    if (removecontent) {
+        titleInput.value = '';
+        authorInput.value = '';
+        titleDropdown.selectedIndex = -1;
+        authorDropdown.selectedIndex = -1;
+        nextVerseTextarea.value = '';
+    }
 }
 
 // Function to display the current poem in the poem container
@@ -276,10 +356,10 @@ function displayData() {
     poemContainer.textContent = `${currentPoem.author}: ${currentPoem.title}`;
 }
 
-function displayInputBoxes(show){
-    if (show){
+function displayInputBoxes(show) {
+    if (show) {
         answerBoxes.style.display = "block";
-        if (modeToggle.checked) {
+        if (!modeToggle.checked) {
             // Typing mode is on
             titleInput.style.display = 'block';
             authorInput.style.display = 'block';
@@ -303,54 +383,96 @@ function checkInputBoxes() {
     let isAuthorCorrect = false;
 
     if (modeToggle.checked) {
-        // Typing mode is on
-        const title = titleInput.value.trim();
-        const author = authorInput.value.trim();
-
-        if (title === currentPoem.title) {
-            isTitleCorrect = true;
-            titleInput.style.backgroundColor = 'lightgreen';
-        } else {
-            titleInput.style.backgroundColor = 'lightcoral';
-        }
-
-        if (author === currentPoem.author) {
-            isAuthorCorrect = true;
-            authorInput.style.backgroundColor = 'lightgreen';
-        } else {
-            authorInput.style.backgroundColor = 'lightcoral';
-        }
-    } else {
         // Dropdown mode is on
         const selectedTitle = titleDropdown.value;
         const selectedAuthor = authorDropdown.value;
+        titleInput.value = selectedTitle;
+        authorInput.value = selectedAuthor;
 
         if (selectedTitle === currentPoem.title) {
             isTitleCorrect = true;
-            titleDropdown.style.backgroundColor = 'lightgreen';
+            titleDropdown.classList.add("correct-answer");
         } else {
-            titleDropdown.style.backgroundColor = 'lightcoral';
+            titleDropdown.classList.add("incorrect-answer");
         }
 
         if (selectedAuthor === currentPoem.author) {
             isAuthorCorrect = true;
-            authorDropdown.style.backgroundColor = 'lightgreen';
+            authorDropdown.classList.add("correct-answer");
         } else {
-            authorDropdown.style.backgroundColor = 'lightcoral';
+            authorDropdown.classList.add("incorrect-answer");
         }
+    } else {
+        // Typing mode is on
+        const title = titleInput.value.trim();
+        const author = authorInput.value.trim();
+
+        if (requirePerfectMatch) {
+            if (title === currentPoem.title) {
+                isTitleCorrect = true;
+            }
+        } else {
+            if (sanitize(title) === sanitize(currentPoem.title.replace(/\([1-9][1-9]*.*\)/, ""))) {
+                isTitleCorrect = true;
+            }
+        }
+        
+        if (requirePerfectMatch) {
+            if (author === currentPoem.author) {
+                isAuthorCorrect = true;
+            }
+        } else {
+            if (sanitize(author) === sanitize(currentPoem.author)) {
+                isAuthorCorrect = true;
+            }
+        }
+    }
+    if (isTitleCorrect) {
+        titleInput.classList.add("correct-answer");
+    } else {
+        titleInput.classList.add("incorrect-answer");
+    }
+
+    if (isAuthorCorrect) {
+        authorInput.classList.add("correct-answer");
+    } else {
+        authorInput.classList.add("incorrect-answer");
     }
 
     return [isTitleCorrect, isAuthorCorrect]
 }
 
+function sanitize(grammartext){
+    let grammarChars = [" ", ",", ".", ";", ":", "?", "!", "-", "\"", "\n", "\\n", "(", ")"]
+    let i = 0
+
+    do {
+        grammartext = grammartext.replaceAll(grammarChars[i], "");
+        i++;
+    }
+    while (i < grammarChars.length);
+    
+    return grammartext.toLowerCase().replaceAll("á", "a").replaceAll("é", "e").replaceAll("í", "i").replaceAll("ó", "o").replaceAll("ö", "o").replaceAll("ő", "o").replaceAll("ú", "u").replaceAll("ü", "u").replaceAll("ű", "u");
+}
+
+// Check if poem's next verse correct
 function checkTextarea(nextVerse) {
     let isNextVerseCorrect = false;
 
-    if (nextVerseTextarea.value.trim() === nextVerse) {
-        isNextVerseCorrect = true;
-        nextVerseTextarea.style.backgroundColor = 'lightgreen';
+    if (requirePerfectMatch) {
+        if (nextVerseTextarea.value.trim() === nextVerse) {
+            isNextVerseCorrect = true;
+            nextVerseTextarea.classList.add("correct-answer");
+        } else {
+            nextVerseTextarea.classList.add("incorrect-answer");
+        }
     } else {
-        nextVerseTextarea.style.backgroundColor = 'lightcoral';
+        if (sanitize(nextVerseTextarea.value) === sanitize(nextVerse)) {
+            isNextVerseCorrect = true;
+            nextVerseTextarea.classList.add("correct-answer");
+        } else {
+            nextVerseTextarea.classList.add("incorrect-answer");
+        }
     }
 
     return isNextVerseCorrect
@@ -360,17 +482,23 @@ function checkGaps() {
     let gaps = document.querySelectorAll(".verseinput");
     gaps.forEach(gap => {
         if (gap.type === "text" && !gap.disabled) { // safety check
-            if (removeExtraSpaces(gap.value.toLowerCase()) == removeExtraSpaces(gap.title.toLowerCase())) {
+            if (removeExtraSpaces(gap.value.toLowerCase()) == removeExtraSpaces(gap.getAttribute('sol').toLowerCase())) {
                 // correct
                 goodGaps++;
                 gap.className += " correct-answer";
             } else {
-                // incorrect
-                gap.className += " incorrect-answer";
+                if (!requirePerfectMatch && sanitize(gap.value) === sanitize(gap.getAttribute('sol'))) {
+                    // counts as correct, but still shows the correct answer with correct punctuation
+                    goodGaps++;
+                    gap.className += " correct-answer";
+                } else {
+                    // incorrect
+                    gap.className += " incorrect-answer";
+                }
                 let correctAnswer = document.createElement("span");
                 correctAnswer.style.color = "var(--correct-colour)";
                 correctAnswer.style.fontWeight = "bold";
-                correctAnswer.innerHTML = `<i>${gap.title}</i>&nbsp;`;
+                correctAnswer.innerHTML = `<i>${gap.getAttribute('sol')}</i>&nbsp;`;
                 gap.after(correctAnswer);
             }
             gap.disabled = true;
@@ -439,9 +567,10 @@ function checkAnswer(event) {
         poemContainer.style.color = "red"
     }
 
-    // Hide submit button and show next button
+    // Hide submit button, disable inputs and show next button
     submitButton.style.display = 'none';
     nextButton.style.display = 'inline-block';
+    disableInputs();
 }
 
 // Function to show feedback message
@@ -456,11 +585,11 @@ function showFeedback(message, color) {
 
 // Function to reset background colors of input elements
 function resetInputBackgroundColors() {
-    titleInput.style.backgroundColor = '';
-    authorInput.style.backgroundColor = '';
-    nextVerseTextarea.style.backgroundColor = '';
-    titleDropdown.style.backgroundColor = '';
-    authorDropdown.style.backgroundColor = '';
+    titleInput.classList.remove('correct-answer', 'incorrect-answer');
+    authorInput.classList.remove('correct-answer', 'incorrect-answer');
+    nextVerseTextarea.classList.remove('correct-answer', 'incorrect-answer');
+    titleDropdown.classList.remove('correct-answer', 'incorrect-answer');
+    authorDropdown.classList.remove('correct-answer', 'incorrect-answer');
 }
 
 function checkBoxes() {
@@ -473,9 +602,135 @@ function checkBoxes() {
     }
 }
 
+function showSettings() {
+    overlay.style.display = 'block';
+    settingsModal.style.display = 'block';
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+        settingsModal.style.opacity = '1';
+    }, 10);
+}
+
+function showPoems() {
+    overlay.style.display = 'block';
+    poemsModal.style.display = 'block';
+    poemsModalFlexdiv.style.display = 'flex';
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+        poemsModal.style.opacity = '1';
+    }, 10);
+}
+
+function hideSettingsPoems() {
+    overlay.style.opacity = '0';
+    settingsModal.style.opacity = '0';
+    poemsModal.style.opacity = '0';
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        settingsModal.style.display = 'none';
+        poemsModal.style.display = 'none';
+    }, 300);
+}
+
+function toggleAll1() {
+    document.getElementById('poems-checkbox-1-1').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-2').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-3').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-4').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-5').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-6').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-7').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-8').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-9').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-10').checked = poemsCheckbox1.checked
+    
+    document.getElementById('poems-checkbox-1-11').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-12').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-13').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-14').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-15').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-16').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-17').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-18').checked = poemsCheckbox1.checked
+}
+
+function toggleAll2() {
+    document.getElementById('poems-checkbox-2-1').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-2').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-3').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-4').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-5').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-6').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-7').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-8').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-9').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-10').checked = poemsCheckbox2.checked
+    
+    document.getElementById('poems-checkbox-2-11').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-12').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-13').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-14').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-15').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-16').checked = poemsCheckbox2.checked
+}
+
+function isOverflowing(element) {
+    let overflowProperty = getComputedStyle(element).overflow;
+    if (overflowProperty === 'visible') {
+        element.style.overflow = 'hidden';
+    }
+    let overflowing = element.scrollWidth > element.clientWidth || element.scrollHeight > element.clientHeight;
+    if (overflowProperty === 'visible') {
+        element.style.overflow = 'visible';
+    }
+    return overflowing; 
+}
+
+// Fix overflowing of poem when zoom is too high
+function fixWrapperOverflow() {
+    let wrapperDiv1 = document.getElementById("poem-wrapper");
+    let wrapperDiv2 = document.getElementById("quiz-wrapper");
+    if (isOverflowing(wrapperDiv1)) {
+      wrapperDiv1.style.alignItems = "flex-start";
+    } else {
+      wrapperDiv1.style.alignItems = "center";
+    }
+    if (isOverflowing(wrapperDiv2)) {
+      wrapperDiv2.style.alignItems = "flex-start";
+    } else {
+      wrapperDiv2.style.alignItems = "center";
+    }
+}
+
+function toggleDarkMode() {
+    let darkModeSheet = document.getElementById('darkmode');
+    if (darkModeSheet == null) {
+        darkModeSheet = document.createElement('link');
+        darkModeSheet.setAttribute('href', 'darkmode.css'); 
+        darkModeSheet.setAttribute('rel', 'stylesheet');
+        darkModeSheet.id = "darkmode";
+        document.head.appendChild(darkModeSheet);
+    } else {
+        darkModeSheet.remove();
+    }
+}
+
 // Event listeners
-document.addEventListener('DOMContentLoaded',initialize);
+document.addEventListener('DOMContentLoaded', initialize);
 
 nextButton.addEventListener('click', loadNewPoem);
 modeToggle.addEventListener('change', toggleMode);
 document.getElementById('quiz-form').addEventListener('submit', checkAnswer);
+
+darkModeButton.addEventListener('click', toggleDarkMode);
+settingsButton.addEventListener('click', showSettings);
+poemsButton.addEventListener('click', showPoems);
+overlay.addEventListener('click', hideSettingsPoems);
+doneButton.addEventListener('click', hideSettingsPoems);
+
+document.getElementById('poems-checkbox-1-0').addEventListener('change', toggleAll1);
+document.getElementById('poems-checkbox-2-0').addEventListener('change', toggleAll2);
+
+window.addEventListener("resize", () => {
+    fixWrapperOverflow();
+});
