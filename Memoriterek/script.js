@@ -710,8 +710,10 @@ function toggleDarkMode() {
         darkModeSheet.setAttribute('rel', 'stylesheet');
         darkModeSheet.id = "darkmode";
         document.head.appendChild(darkModeSheet);
+        document.getElementById('dark-mode-button').textContent = "🌙"
     } else {
         darkModeSheet.remove();
+        document.getElementById('dark-mode-button').textContent = "☀️"
     }
 }
 
