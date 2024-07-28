@@ -3,7 +3,6 @@
     --correct-colour: lightgreen;
     --incorrect-colour: lightcoral;
 }
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,13 +14,12 @@ body {
     background-color: #f0f0f0;
     font-size: 20px;
 }
-
 .container {
     position: relative; /* Position context for absolute positioning */
     display: grid;
     width: 90%;
     height: 80vh;
-    max-width: 1000px;
+    max-width: 1200px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,7 +27,6 @@ body {
     grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
     grid-gap: 8px;
 }
-
 .poem-container, .quiz-container {
     position: relative;
     height: 80vh;
@@ -37,6 +34,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px;
 }
 
 .poem-aligner, #quiz-form {
@@ -45,7 +43,6 @@ body {
     justify-content: center;
     margin: 10px;
 }
-
 .poem-container #poem-container {
     white-space: pre-wrap; /* Preserve formatting and line breaks */
     text-align: left; /* Align poem to the left */
@@ -60,7 +57,6 @@ body {
     align-items: center;
     flex-direction: column;
 }
-
 .input-group {
     display: flex;
     align-items: center;
@@ -68,16 +64,13 @@ body {
     width: 80%;
     max-width: 300px;
 }
-
 .input-group label {
     margin-right: 10px;
     width: 30%;
 }
-
 #next-verse-label {
     width: 100%;
 }
-
 input[type="text"], select {
     flex: 1;
     padding: 10px;
@@ -88,7 +81,6 @@ input[type="text"], select {
     width: 100%; /* Full width */
     max-width: 100%; /* Maximum width */
 }
-
 #next-verse {
     height: 120px;
     width: 100%;
@@ -98,15 +90,12 @@ input[type="text"], select {
     max-height: 50vh;
     margin-top: 5px;
 }
-
 #next-verse-group {
     flex-direction: column;
 }
-
 button {
     cursor: pointer;
 }
-
 #submit-button, #next-button {
     background-color: #4CAF50; /* Green */
     color: white;
@@ -120,20 +109,16 @@ button {
     border-radius: 4px;
     transition: background-color 0.3s;
 }
-
 #submit-button:hover, #next-button:hover {
     background-color: #45a049; /* Darker green */
 }
-
 #next-button {
     background-color: #4169E1; /* Darker blue */
     display: none; /* Hidden by default */
 }
-
 #next-button:hover {
     background-color: #355fcd; /* Darker shade on hover */
 }
-
 #feedback {
     margin-top: 20px;
     text-align: center;
@@ -141,7 +126,6 @@ button {
     font-weight: bold;
     color: black; /* Default color */
 }
-
 select {
     padding: 10px;
     font-size: 16px;
@@ -152,25 +136,20 @@ select {
     max-width: 100%;
     transition: background-color 0.3s; /* Smooth transition for background color */
 }
-
 /* Define the specific background colors for correct and incorrect answers */
 .correct-answer {
     background-color: var(--correct-colour);
 }
-
 .incorrect-answer {
     background-color: var(--incorrect-colour);
 }
-
 .verseinput, .versespan {
     margin-right: 5px;
     padding: 1px !important;
 }
-
 .verseinput {
     padding-left: 3px !important;
 }
-
 /* Settings */
 #settings-button {
     position: fixed;
@@ -179,7 +158,6 @@ select {
     font-size: 20px;
     cursor: pointer;
 }
-
 #poems-button {
     position: fixed;
     top: 10px;
@@ -190,12 +168,11 @@ select {
 
 #dark-mode-button {
     position: fixed;
-    top: 8px;
-    right: 102px;
+    top: 10px;
+    right: 110px;
     font-size: 20px;
     cursor: pointer;
 }
-
 #overlay {
     display: none;
     position: fixed;
@@ -208,7 +185,6 @@ select {
     transition: opacity 0.3s;
     z-index: 10;
 }
-
 #settings-modal {
     display: none;
     position: fixed;
@@ -221,11 +197,9 @@ select {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 20;
 }
-
 #settings-modal h2 {
     margin-top: 0;
 }
-
 #poems-modal {
     display: none;
     position: fixed;
@@ -239,7 +213,6 @@ select {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 20;
 }
-
 #poems_main_div{
     display: flex;
     flex-direction: row;
@@ -247,22 +220,18 @@ select {
     align-items: center;
     align-content: center;
 }
-
 .poems_side_div{
     width: 48%;
     height: 100%
 }
-
 h2 {
     margin: 0;
 }
-
 .checkbox-container{
     max-height: 55svh;
     overflow-y: scroll;
     width: 95%;
 }
-
 #done-button {
     padding: 8px;
     width: 100%;
