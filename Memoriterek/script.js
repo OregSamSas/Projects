@@ -35,7 +35,6 @@ const nextButton = document.getElementById('next-button');
 const answerBoxes = document.getElementById('answer-boxes');
 const nextVerseGroup = document.getElementById('next-verse-group');
 const nextVerseLabel = document.getElementById('next-verse-label');
-
 const darkModeButton = document.getElementById('dark-mode-button');
 const settingsButton = document.getElementById('settings-button');
 const overlay = document.getElementById('overlay');
@@ -47,9 +46,9 @@ const poemsModalFlexdiv = document.getElementById('poems_main_div');
 const poemsCheckbox1 = document.getElementById('poems-checkbox-1-0');
 const poemsCheckbox2 = document.getElementById('poems-checkbox-2-0');
 
+
 // Global vars
 let verse = new String;
-
 let areAnswersCorrect = []
 
 let gapNumber = 0;
@@ -335,6 +334,7 @@ function disableInputs(removecontent = false) {
         authorDropdown.selectedIndex = -1;
         nextVerseTextarea.value = '';
     }
+
 }
 
 // Function to display the current poem in the poem container
@@ -715,6 +715,80 @@ function toggleDarkMode() {
     }
 }
 
+
+
+function showSettings() {
+    overlay.style.display = 'block';
+    settingsModal.style.display = 'block';
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+        settingsModal.style.opacity = '1';
+    }, 10);
+}
+
+function showPoems() {
+    overlay.style.display = 'block';
+    poemsModal.style.display = 'block';
+    poemsModalFlexdiv.style.display = 'flex';
+    setTimeout(() => {
+        overlay.style.opacity = '1';
+        poemsModal.style.opacity = '1';
+    }, 10);
+}
+
+function hideSettingsPoems() {
+    overlay.style.opacity = '0';
+    settingsModal.style.opacity = '0';
+    poemsModal.style.opacity = '0';
+    setTimeout(() => {
+        overlay.style.display = 'none';
+        settingsModal.style.display = 'none';
+        poemsModal.style.display = 'none';
+    }, 300);
+}
+
+function toggleAll1() {
+    document.getElementById('poems-checkbox-1-1').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-2').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-3').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-4').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-5').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-6').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-7').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-8').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-9').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-10').checked = poemsCheckbox1.checked
+    
+    document.getElementById('poems-checkbox-1-11').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-12').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-13').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-14').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-15').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-16').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-17').checked = poemsCheckbox1.checked
+    document.getElementById('poems-checkbox-1-18').checked = poemsCheckbox1.checked
+}
+
+function toggleAll2() {
+    document.getElementById('poems-checkbox-2-1').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-2').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-3').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-4').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-5').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-6').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-7').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-8').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-9').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-10').checked = poemsCheckbox2.checked
+    
+    document.getElementById('poems-checkbox-2-11').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-12').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-13').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-14').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-15').checked = poemsCheckbox2.checked
+    document.getElementById('poems-checkbox-2-16').checked = poemsCheckbox2.checked
+}
+
 // Event listeners
 document.addEventListener('DOMContentLoaded', initialize);
 
@@ -723,6 +797,7 @@ modeToggle.addEventListener('change', toggleMode);
 document.getElementById('quiz-form').addEventListener('submit', checkAnswer);
 
 darkModeButton.addEventListener('click', toggleDarkMode);
+
 settingsButton.addEventListener('click', showSettings);
 poemsButton.addEventListener('click', showPoems);
 overlay.addEventListener('click', hideSettingsPoems);
