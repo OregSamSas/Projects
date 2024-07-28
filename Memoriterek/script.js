@@ -262,7 +262,7 @@ function loadNewPoem() {
         // Display poem in poem container
         if (currentPoem.recite && reciteModeEnabled) {
 
-            if (Math.random() > 0.6 && gaptextModeEnabled) {
+            if (/*Math.random() > 0.6 && */gaptextModeEnabled) {
                 // Display a gappy verse with inputs for missing words to fill in/out
                 displayPoem(true);
                 displayInputBoxes(true);
@@ -798,10 +798,16 @@ nextButton.addEventListener('click', loadNewPoem);
 modeToggle.addEventListener('change', toggleMode);
 document.getElementById('quiz-form').addEventListener('submit', checkAnswer);
 
-darkModeButton.addEventListener('click', toggleDarkMode);
+perfectGrammarModeToggle.addEventListener('change', () => {
+    requirePerfectMatch = perfectGrammarModeToggle.checked;
+});
+reciteModeToggle.addEventListener('change', () => {
+    if (reciteModeToggle.checked) {gaptextModeToggle.checked = false}
+})
 
 settingsButton.addEventListener('click', showSettings);
 poemsButton.addEventListener('click', showPoems);
+darkModeButton.addEventListener('click', toggleDarkMode);
 overlay.addEventListener('click', hideSettingsPoems);
 doneButton.addEventListener('click', hideSettingsPoems);
 
