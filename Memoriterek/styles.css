@@ -294,6 +294,7 @@ h2 {
 
 input:disabled, button:disabled, select:disabled {
     color: black;
+}
 
 select.incorrect-answer {
     background-color: lightcoral;
