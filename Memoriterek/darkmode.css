@@ -1,0 +1,65 @@
+:root {
+    --correct-colour: rgb(44, 137, 13);
+    --incorrect-colour: rgb(98, 11, 11);
+}
+
+html {
+    color-scheme: dark !important;
+    color: white;
+}
+
+[style*="black"] {
+    color: white !important;
+}
+
+*, optgroup {
+    scrollbar-color: rgb(69, 74, 77) rgb(32, 35, 36) !important;
+}
+
+body {
+    background-color: rgb(32, 35, 37);
+}
+
+.container {
+    background-color: rgb(24, 26, 27);
+}
+
+#submit-button {
+    background-color: rgb(61, 140, 64);
+}
+
+#submit-button:hover {
+    background-color: rgb(55, 128, 58);
+}
+
+.incorrect-answer {
+    color: white !important;
+}
+
+[style*="red"] {
+    color: rgb(255, 26, 26);
+}
+
+#next-button {
+    background-color: rgb(40, 74, 162);
+}
+
+#next-button:hover {
+    background-color: rgb(44, 78, 169);
+}
+
+.correct-answer {
+    color: white !important;
+}
+
+select, input, optgroup, option {
+    border-color: rgb(69, 74, 77) !important;
+}
+
+#poems-modal, #settings-modal {
+    background-color: rgb(24, 26, 27) !important;
+}
+
+#done-button {
+    background-color: rgb(112, 77, 31);
+}

@@ -1,3 +1,9 @@
+:root {
+    --correct-colour-fade: rgba(144, 238, 144, 70);
+    --correct-colour: lightgreen;
+    --incorrect-colour: lightcoral;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -12,38 +18,41 @@ body {
 
 .container {
     position: relative; /* Position context for absolute positioning */
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 90%; /* Adjusted width to 90% */
-    height: 80vh; /* Increased height to 80vh */
-    max-width: 1000px; /* Increased maximum width */
+    display: grid;
+    width: 90%;
+    height: 80vh;
+    max-width: 1000px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    grid-gap: 8px;
 }
 
-.poem-container {
+.poem-container, .quiz-container {
     position: relative;
-    width: 55%;
-    height: 100%;
-    padding: 20px;
+    height: 80vh;
     overflow-y: auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.poem-aligner {
+.poem-aligner, #quiz-form {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 10px;
 }
 
 .poem-container #poem-container {
     white-space: pre-wrap; /* Preserve formatting and line breaks */
     text-align: left; /* Align poem to the left */
+}
+
+#gaptext-mode-toggle {
+    top: 70px; /* Position it 50px below the recite mode toggle */
 }
 
 .quiz-container {
@@ -70,10 +79,8 @@ body {
 }*/
 
 #quiz-form {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 100%; /* Full width for form */
+    flex-direction: column;
 }
 
 .input-group {
@@ -87,7 +94,10 @@ body {
 .input-group label {
     margin-right: 10px;
     width: 30%;
-    text-align: right;
+}
+
+#next-verse-label {
+    width: 100%;
 }
 
 input[type="text"], select {
@@ -104,7 +114,15 @@ input[type="text"], select {
 #next-verse {
     height: 120px;
     width: 100%;
+    min-width: 50%;
+    max-width: 100%;
+    min-height: 10vh;
+    max-height: 50vh;
     margin-top: 5px;
+}
+
+#next-verse-group {
+    flex-direction: column;
 }
 
 button {
@@ -158,9 +176,124 @@ select {
 }
 
 /* Define the specific background colors for correct and incorrect answers */
-select.correct-answer {
-    background-color: lightgreen;
+.correct-answer {
+    background-color: var(--correct-colour);
 }
+
+.incorrect-answer {
+    background-color: var(--incorrect-colour);
+}
+
+.verseinput, .versespan {
+    margin-right: 5px;
+    padding: 1px !important;
+}
+
+.verseinput {
+    padding-left: 3px !important;
+}
+
+/* Settings */
+#settings-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#poems-button {
+    position: fixed;
+    top: 10px;
+    right: 60px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#dark-mode-button {
+    position: fixed;
+    top: 8px;
+    right: 102px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+#settings-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 20;
+}
+
+#settings-modal h2 {
+    margin-top: 0;
+}
+
+#poems-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 20;
+}
+
+#poems_main_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.poems_side_div{
+    width: 48%;
+    height: 100%
+}
+
+h2 {
+    margin: 0;
+}
+
+.checkbox-container{
+    max-height: 55svh;
+    overflow-y: scroll;
+    width: 95%;
+}
+
+#done-button {
+    padding: 8px;
+    width: 100%;
+    border-radius: 11px;
+    background-color: burlywood;
+}
+
+input:disabled, button:disabled, select:disabled {
+    color: black;
 
 select.incorrect-answer {
     background-color: lightcoral;
