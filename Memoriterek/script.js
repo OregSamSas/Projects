@@ -750,45 +750,35 @@ function hideSettingsPoems() {
 }
 
 function toggleAll1() {
-    document.getElementById('poems-checkbox-1-1').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-2').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-3').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-4').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-5').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-6').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-7').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-8').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-9').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-10').checked = poemsCheckbox1.checked
-    
-    document.getElementById('poems-checkbox-1-11').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-12').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-13').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-14').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-15').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-16').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-17').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-18').checked = poemsCheckbox1.checked
+    document.querySelectorAll('#checkbox-container-1 input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = poemsCheckbox1.checked;
+      });
 }
 
 function toggleAll2() {
-    document.getElementById('poems-checkbox-2-1').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-2').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-3').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-4').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-5').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-6').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-7').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-8').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-9').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-10').checked = poemsCheckbox2.checked
-    
-    document.getElementById('poems-checkbox-2-11').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-12').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-13').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-14').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-15').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-16').checked = poemsCheckbox2.checked
+    document.querySelectorAll('#checkbox-container-2 input[type="checkbox"]').forEach(checkbox => {
+        checkbox.checked = poemsCheckbox2.checked;
+      });
+}
+
+function odietamoSelect(){
+    var selectedValue = this.value
+    if (selectedValue == "Szabo"){
+        poems[1]["verses"] = [`Gyűlölök és szeretek. Miért? Nem tudom én se, de érzem:
+így van ez, és a szívem élve keresztre feszít.`]
+    }
+    else if (selectedValue == "Illyes"){
+        poems[1]["verses"] = [`Gyűlölök és szeretek. Kérded tán, mért teszem én ezt?
+Mit tudom! Ezt érzem. Szenvedek, ezt tudom én.`]
+    }
+    else if(selectedValue == "Kerenyi"){
+        poems[1]["verses"] = [`Gyűlölök és szeretek. Hogy mért teszem ezt, ugye kérded?
+Mit tudom én. Így van: érzem és öl e kín.`]
+    }
+    else if(selectedValue == "Catullus"){
+        poems[1]["verses"] = [`Odi et amo. Quare id faciam, fortasse requiris.
+Nescio, sed fieri sentio et excrucior.`]
+    }
 }
 
 // Event listeners
@@ -810,6 +800,7 @@ poemsButton.addEventListener('click', showPoems);
 darkModeButton.addEventListener('click', toggleDarkMode);
 overlay.addEventListener('click', hideSettingsPoems);
 doneButton.addEventListener('click', hideSettingsPoems);
+document.getElementById('odietamo-selector').addEventListener('change', odietamoSelect)
 
 document.getElementById('poems-checkbox-1-0').addEventListener('change', toggleAll1);
 document.getElementById('poems-checkbox-2-0').addEventListener('change', toggleAll2);
