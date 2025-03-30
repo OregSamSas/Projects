@@ -83,7 +83,7 @@ function populateDropdowns() {
     });
 
     // Convert Sets to sorted arrays
-    const titles = Array.from(titleSet).sort((a, b) => a.localeCompare(b));
+    const titles = [...new Set([...Array.from(titleSet).sort((a, b) => a.localeCompare(b)), ...["Ágnes asszony", "V. László", "Walesi bárdok"]])]
     const authors = Array.from(authorSet).sort((a, b) => a.localeCompare(b));
 
     // Populate title dropdown
@@ -781,6 +781,22 @@ Nescio, sed fieri sentio et excrucior.`]
     }
 }
 
+function balladaSelect(){
+    var selectedValue = this.value
+    if (selectedValue == "Agnes"){
+        poems[37]["verses"] = poems[37]["balladak"][0]
+        poems[37]["title"] = "Ágnes asszony"
+    }
+    else if (selectedValue == "VLaszlo"){
+        poems[37]["verses"] = poems[37]["balladak"][1]
+        poems[37]["title"] = "V. László"
+    }
+    else if(selectedValue == "Walesi"){
+        poems[37]["verses"] = poems[37]["balladak"][2]
+        poems[37]["title"] = "Walesi bárdok"
+    }
+}
+
 // Event listeners
 document.addEventListener('DOMContentLoaded', initialize);
 
@@ -801,6 +817,7 @@ darkModeButton.addEventListener('click', toggleDarkMode);
 overlay.addEventListener('click', hideSettingsPoems);
 doneButton.addEventListener('click', hideSettingsPoems);
 document.getElementById('odietamo-selector').addEventListener('change', odietamoSelect)
+document.getElementById('ballada-selector').addEventListener('change', balladaSelect)
 
 document.getElementById('poems-checkbox-1-0').addEventListener('change', toggleAll1);
 document.getElementById('poems-checkbox-2-0').addEventListener('change', toggleAll2);

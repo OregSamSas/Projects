@@ -1,6 +1,15 @@
 {
     "poems":[
         {
+            "title":"Odüsszeia",
+            "author":"Homérosz",
+            "recite":false,
+            "active":"poems-checkbox-odusszeia",
+            "verses":[
+                "Férfiuról szólj nékem, Múzsa, ki sokfele bolygott\ns hosszan hányódott, földúlván szentfalu Tróját,\nsok nép városait, s eszejárását kitanulta,\ns tengeren is sok erős gyötrelmet tűrt a szivében,\nmenteni vágyva saját lelkét, társak hazatértét."
+            ]
+        },
+        {
             "title":"Gyűlölöm azt",
             "author":"Anakreón",
             "recite":true,
@@ -417,8 +426,9 @@
             "title":"Ágnes asszony",
             "author":"Arany János",
             "recite":true,
-            "active":"poems-checkbox-agnes",
-            "verses":[
+            "active":"poems-checkbox-ballada",
+            "verses": 
+            [
                 "Ágnes asszony a patakban\nFehér lepedőjét mossa;\nFehér leplét, véres leplét\nA futó hab elkapdossa.\nOh! irgalom atyja, ne hagyj el.",
                 "Odagyűl az utcagyermek:\nÁgnes asszony, mit mos kelmed?\n„Csitt te, csitt te! csibém vére\nKeveré el a gyolcs leplet.”\nOh! irgalom atyja, ne hagyj el.",
                 "Összefutnak a szomszédnők:\nÁgnes asszony, hol a férjed?\n„Csillagom, hisz ottbenn alszik!\nNe menjünk be, mert fölébred.”\nOh! irgalom atyja, ne hagyj el.",
@@ -445,14 +455,36 @@
                 "És ez így megy évrül-évre,\nTélen-nyáron, szünet nélkül;\nHarmat-arca hő napon ég,\nGyönge térde fagyban kékül.\nOh! irgalom atyja, ne hagyj el.",
                 "Őszbe fordul a zilált haj,\nMár nem holló, nem is ében;\nTorz-alakú ránc verődik\nSzanaszét a síma képen.\nOh! irgalom atyja, ne hagyj el.",
                 "S Ágnes asszony a patakban\nRégi rongyát mossa, mossa -\nFehér leple foszlányait\nA szilaj hab elkapdossa.\nOh! irgalom atyja, ne hagyj el."
-            ]
-        },
-        {
-            "title":"V. László",
-            "author":"Arany János",
-            "recite":true,
-            "active":"poems-checkbox-vlaszlo",
-            "verses":[
+            ],
+            "balladak": [[
+                "Ágnes asszony a patakban\nFehér lepedőjét mossa;\nFehér leplét, véres leplét\nA futó hab elkapdossa.\nOh! irgalom atyja, ne hagyj el.",
+                "Odagyűl az utcagyermek:\nÁgnes asszony, mit mos kelmed?\n„Csitt te, csitt te! csibém vére\nKeveré el a gyolcs leplet.”\nOh! irgalom atyja, ne hagyj el.",
+                "Összefutnak a szomszédnők:\nÁgnes asszony, hol a férjed?\n„Csillagom, hisz ottbenn alszik!\nNe menjünk be, mert fölébred.”\nOh! irgalom atyja, ne hagyj el.",
+                "Jön a hajdu: Ágnes asszony,\nA tömlöcbe gyere mostan.\n„Jaj, galambom, hogy’ mehetnék,\nMíg e foltot ki nem mostam!”\nOh! irgalom atyja, ne hagyj el.",
+                "Mély a börtön: egy sugár-szál\nOdaférni alig képes;\nEgy sugár a börtön napja,\nÉje pedig rémtül népes.\nOh! irgalom atyja, ne hagyj el.",
+                "Szegény Ágnes naphosszanta\nNéz e kis világgal szembe,\nNéz merően, - a sugárka\nMind beléfér egy fél szembe.\nOh! irgalom atyja, ne hagyj el.",
+                "Mert, alighogy félre fordul,\nRémek tánca van körűle;\nHa ez a kis fény nem volna,\nÚgy gondolja: megőrűlne.\nOh! irgalom atyja, ne hagyj el.",
+                "Ím azonban, időtelve,\nBörtönének zárja nyílik:\nÁgnes a törvény előtt\nMegáll szépen, ahogy illik.\nOh! irgalom atyja, ne hagyj el.",
+                "Öltözetjét rendbe hozza,\nKendőjére fordít gondot,\nSzöghaját is megsimítja\nNehogy azt higgyék: megbomlott.\nOh! irgalom atyja, ne hagyj el.",
+                "Hogy belép, a zöld asztalnál\nTisztes őszek űlnek sorra;\nSzánalommal néznek ő rá,\nEgy se mérges, vagy mogorva.\nOh! irgalom atyja, ne hagyj el.",
+                "„Fiam, Ágnes, mit miveltél?\nSzörnyü a bűn, terhes a vád;\nKi a tettet végrehajtá\nSzeretőd ím maga vall rád.”\nOh! irgalom atyja, ne hagyj el.",
+                "„Ő bitón fog veszni holnap,\nŐ, ki férjedet megölte;\nHoltig vízen és kenyéren\nRaboskodva bünhödöl te.”\nOh! irgalom atyja, ne hagyj el.",
+                "Körültekint Ágnes asszony,\nMeggyőződni ép eszérül;\nHallja a hangot, érti a szót,\nS míg azt érti: „meg nem őrül.”\nOh! irgalom atyja, ne hagyj el.",
+                "De amit férjéről mondtak\nA szó oly visszásan tetszik;\nAz világos csak, hogy őt\nHaza többé nem eresztik.\nOh! irgalom atyja, ne hagyj el.",
+                "Nosza sírni, kezd zokogni,\nSűrü záporkönnye folyván:\nLiliomról pergő harmat,\nHulló vizgyöngy hattyu tollán.\nOh! irgalom atyja, ne hagyj el.",
+                "„Méltóságos nagy uraim!\nNézzen Istent kegyelmetek:\nSürgetős munkám van otthon,\nFogva én itt nem űlhetek.”\nOh! irgalom atyja, ne hagyj el.",
+                "„Mocsok esett lepedőmön,\nKi kell a vérfoltot vennem!\nJaj, ha e szenny ott maradna,\nHová kéne akkor lennem!”\nOh! irgalom atyja ne hagyj el.",
+                "Összenéz a bölcs törvényszék\nHallatára ily panasznak.\nCsendesség van. Hallgat a száj,\nCsupán a szemek szavaznak.\nOh! irgalom atyja, ne hagyj el.",
+                "„Eredj haza, szegény asszony!\nMosd fehérre mocskos lepled;\nEredj haza, Isten adjon\nErőt ahhoz és kegyelmet.”\nOh! irgalom atyja, ne hagyj el.",
+                "S Ágnes asszony a patakban\nLepedőjét újra mossa;\nFehér leplét, tiszta leplét\nA futó hab elkapdossa.\nOh! irgalom atyja, ne hagyj el",
+                "Mert hiában tiszta a gyolcs,\nBenne többé semmi vérjel:\nÁgnes azt még egyre látja\nS épen úgy, mint akkor éjjel.\nOh! irgalom atyja, ne hagyj el.",
+                "Virradattól késő estig\nÁll a vízben, széke mellett:\nHab zilálja rezgő árnyát,\nHaja fürtét kósza szellet.\nOh! irgalom atyja, ne hagyj el.",
+                "Holdvilágos éjjelenkint,\nMikor a víz fodra csillog,\nMaradozó csattanással,\nFehér sulyka messze villog.\nOh! irgalom atyja, ne hagyj el.",
+                "És ez így megy évrül-évre,\nTélen-nyáron, szünet nélkül;\nHarmat-arca hő napon ég,\nGyönge térde fagyban kékül.\nOh! irgalom atyja, ne hagyj el.",
+                "Őszbe fordul a zilált haj,\nMár nem holló, nem is ében;\nTorz-alakú ránc verődik\nSzanaszét a síma képen.\nOh! irgalom atyja, ne hagyj el.",
+                "S Ágnes asszony a patakban\nRégi rongyát mossa, mossa -\nFehér leple foszlányait\nA szilaj hab elkapdossa.\nOh! irgalom atyja, ne hagyj el."
+            ],
+            [
                 "Sűrű setét az éj,\nDühöng a déli szél,\nJó Budavár magas\nTornyán az érckakas\nCsikorog élesen.",
                 "„Ki az? mi az? vagy úgy -”\n„Fordulj be és alugy\nUram László király:\nA zápor majd eláll,\nAz veri ablakod.”",
                 "A felhő megszakad,\nNyilása tűz, patak;\nZúgó sebes özönt\nA rézcsatorna önt\nBudának tornyiról.",
@@ -468,14 +500,8 @@
                 "Az alvó felvirad,\nA bujdosó riad;\nSzellő sincsen, de zúg,\nFelhő sincsen, de búg\nS villámlik messziről.",
                 "„Oh adj, oh adj nekem\nHűs cseppet, hű csehem!”\n„Itt a kehely, igyál,\nUram, László király,\nEnyhít... mikép a sír!”",
                 "Állj meg, boszú, megállj:\nCseh földön űl a rab;\nCseh földben a király,\nMindég is ott marad,\nDe visszajő a rab...!"
-            ]
-        },
-        {
-            "title":"Walesi Bárdok",
-            "author":"Arany János",
-            "recite":true,
-            "active":"poems-checkbox-walesi",
-            "verses":[
+            ],
+            [
                 "Edward király, angol király\nLéptet fakó lován:\nHadd látom, úgymond, mennyit ér\nA velszi tartomány.",
                 "Van-e ott folyó és földje jó?\nLegelőin fű kövér?\nHasznált-e a megöntözés:\nA pártos honfivér?",
                 "S a nép, az istenadta nép,\nHa oly boldog-e rajt’\nMint akarom, s mint a barom,\nMelyet igába hajt?",
@@ -508,6 +534,7 @@
                 "Ha, ha! elő síp, dob, zene!\nHarsogjon harsona:\nFülembe zúgja átkait\nA velszi lakoma...",
                 "De túl zenén, túl síp-dobon,\nRiadó kürtön át:\nÖtszáz énekli hangosan\nA vértanúk dalát."
             ]
+        ]
         }
     ]
 }
