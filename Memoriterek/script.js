@@ -459,7 +459,7 @@ function checkInputBoxes() {
 }
 
 function sanitize(grammartext){
-    let grammarChars = [" ", ",", ".", ";", ":", "?", "!", "-", "\"", "\n", "\\n", "(", ")"]
+    let grammarChars = [" ", ",", ".", ";", ":", "?", "!", "-", "\"", "\n", "\\n", "(", ")", "‟", "„", "”", "‘", "’", "’", "“", "”", "–", "—", "…", "\t"];
     let i = 0
 
     do {
