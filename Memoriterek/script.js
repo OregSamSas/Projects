@@ -62,6 +62,11 @@ let reciteModeEnabled = true;
 let requirePerfectMatch = perfectGrammarModeToggle.checked
 let gaptextModeEnabled = true;
 
+// URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+const poemParam = urlParams.get('poem');
+const verseParam = urlParams.get('verse');
+
 // Function to initialize the page
 function initialize() {
     nextButton.style.display = 'none';
@@ -227,6 +232,10 @@ function resetQuiz() {
     titleDropdown.selectedIndex = -1;
     authorDropdown.selectedIndex = -1;
     nextVerseTextarea.value = '';
+    nextVerseTextarea.style.display = 'block';
+    if (document.querySelector('#answer-diffs') !== null) {
+        document.querySelector('#answer-diffs').remove();
+    }
     nextVerseGroup.style.display = 'none';
     feedbackContainer.textContent = '';
     feedbackContainer.style.display = 'none';
@@ -251,11 +260,19 @@ function loadNewPoem() {
 
     if (poemschecked.length > 0) {
         resetQuiz();
-
-        // Select a random poem which is selected in settings
-        poemIndex = Math.floor(Math.random() * poems.length);
-        while (!document.getElementById(poems[poemIndex].active).checked) {
+        
+        if (poemParam !== null && poems.map(poem => sanitize(poem.title)).includes(sanitize(poemParam))) {
+            // Select the poem with the given title
+            poemIndex = poems.map(poem => sanitize(poem.title)).indexOf(sanitize(poemParam));
+        } else if (poemParam !== null && !isNaN(poemParam) && poems[poemParam]) {
+            // Select the poem with the given index
+            poemIndex = parseInt(poemParam, 10);
+        } else {
+            // Select a random poem which is selected in settings
             poemIndex = Math.floor(Math.random() * poems.length);
+            while (!document.getElementById(poems[poemIndex].active).checked) {
+                poemIndex = Math.floor(Math.random() * poems.length);
+            }
         }
         currentPoem = poems[poemIndex];
 
@@ -305,8 +322,7 @@ function loadNewPoem() {
         poemContainer.innerHTML = "";
         currentPoem = null;
         displayWarning("Nincs kiválasztott vers!");
-    }
-}
+    }}
 
 function displayWarning(txt) {
     let warningDiv = document.createElement("div");
@@ -443,7 +459,7 @@ function checkInputBoxes() {
 }
 
 function sanitize(grammartext){
-    let grammarChars = [" ", ",", ".", ";", ":", "?", "!", "-", "\"", "\n", "\\n", "(", ")"]
+    let grammarChars = [" ", ",", ".", ";", ":", "?", "!", "-", "\"", "\n", "\\n", "(", ")", "‟", "„", "”", "‘", "’", "’", "“", "”", "–", "—", "…", "\t"];
     let i = 0
 
     do {
@@ -472,10 +488,107 @@ function checkTextarea(nextVerse) {
             nextVerseTextarea.classList.add("correct-answer");
         } else {
             nextVerseTextarea.classList.add("incorrect-answer");
+
+        }
+    }
+    
+    // Highlight mistakes
+    let differences = findDifferences(nextVerseTextarea.value, nextVerse);
+    console.log(differences);
+
+    // Create a paragraph to display the content with underlined differences
+    let paragraph = document.createElement('p')
+    paragraph.id = "answer-diffs";
+    paragraph.style.whiteSpace = 'pre-wrap'; // Preserve line breaks and spaces
+    paragraph.style.border = '1px rgba(118, 118, 118, 0.3) solid';
+    paragraph.style.width = '100%';
+    paragraph.style.fontFamily = 'monospace';
+    paragraph.style.padding = '2px';
+    paragraph.style.fontSize = '14px';
+    paragraph.style.minHeight = '10vh';
+    if (nextVerseTextarea.classList.contains("correct-answer")) {
+        paragraph.className = "correct-answer";
+    }
+    else {
+        paragraph.className = "incorrect-answer";
+    }
+
+    for (let i = 0; i < nextVerseTextarea.value.length; i++) {
+        let span = document.createElement('span');
+        span.textContent = nextVerseTextarea.value[i];
+
+        // Check if the current position is in the differences
+        if (differences.positions.includes(i)) {
+            if (differences.types[differences.positions.indexOf(i)] === "wrong char") {
+                span.style.color = 'red';
+                span.style.textDecoration = 'underline';
+                span.style.textDecorationColor = 'red';
+            } else if (differences.types[differences.positions.indexOf(i)] === "missing char") {
+                let missingSign = document.createElement('span');
+                missingSign.textContent = "*";
+                missingSign.style.color = 'red';
+                paragraph.appendChild(missingSign);
+            } else {
+                span.style.color = 'red';
+                span.style.textDecoration = 'line-through';
+                span.style.textDecorationColor = 'red';
+            }
+        }
+
+        paragraph.appendChild(span);
+    }
+
+    // Append the paragraph below the input field
+    nextVerseTextarea.after(paragraph);
+    nextVerseTextarea.style.display = 'none';
+
+    return isNextVerseCorrect
+}
+
+function findDifferences(userInput, correctAnswer) {
+    let differences = {
+        positions: [],
+        types: []
+    };
+
+    let dp = Array.from({ length: userInput.length + 1 }, () => Array(correctAnswer.length + 1).fill(0));
+
+    for (let i = 0; i <= userInput.length; i++) {
+        for (let j = 0; j <= correctAnswer.length; j++) {
+            if (i === 0) {
+                dp[i][j] = j;
+            } else if (j === 0) {
+                dp[i][j] = i;
+            } else if (userInput[i - 1] === correctAnswer[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {
+                dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+            }
         }
     }
 
-    return isNextVerseCorrect
+    let i = userInput.length, j = correctAnswer.length;
+    while (i > 0 || j > 0) {
+        if (i > 0 && j > 0 && userInput[i - 1] === correctAnswer[j - 1]) {
+            i--;
+            j--;
+        } else if (i > 0 && dp[i][j] === dp[i - 1][j] + 1) {
+            differences.positions.push(i - 1);
+            differences.types.push("extra char");
+            i--;
+        } else if (j > 0 && dp[i][j] === dp[i][j - 1] + 1) {
+            differences.positions.push(i);
+            differences.types.push("missing char");
+            j--;
+        } else if (i > 0 && j > 0 && dp[i][j] === dp[i - 1][j - 1] + 1) {
+            differences.positions.push(i - 1);
+            differences.types.push("wrong char");
+            i--;
+            j--;
+        }
+    }
+
+    return differences;
 }
 
 function checkGaps() {
@@ -562,9 +675,13 @@ function checkAnswer(event) {
         showFeedback(`Hibás. A cím "${currentPoem.title}" és a szerző "${currentPoem.author}"`, 'red');
     }
 
-    if (!areAnswersCorrect[2] && !gaptextModeEnabled) {
+    if (currentPoem.recite && reciteModeEnabled &&!gaptextModeEnabled) {
         poemContainer.textContent = currentPoem.verses[(verseIndex+1) % (currentPoem.verses.length)]
-        poemContainer.style.color = "red"
+        if (areAnswersCorrect[2]) {
+            poemContainer.style.color = "green"
+        } else {
+            poemContainer.style.color = "red";
+        }
     }
 
     // Hide submit button, disable inputs and show next button
