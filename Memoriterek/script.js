@@ -66,10 +66,22 @@ let gaptextModeEnabled = true;
 const urlParams = new URLSearchParams(window.location.search);
 const poemParam = urlParams.get('poem');
 const verseParam = urlParams.get('verse');
+if (urlParams.has('odietamo')) {
+    document.getElementById('odietamo-selector').value = urlParams.get('odietamo');
+}
+if (urlParams.has('ballad')) {
+    document.getElementById('ballada-selector').value = urlParams.get('ballad');
+}
+if (urlParams.has('gaptext')) {
+    document.getElementById('gaptext-mode').checked = true;
+}
 
 // Function to initialize the page
 function initialize() {
     nextButton.style.display = 'none';
+    odietamoSelect(document.getElementById('odietamo-selector').value);
+    balladaSelect(document.getElementById('ballada-selector').value);
+    gaptextModeEnabled = gaptextModeToggle.checked;
     populateDropdowns();
     loadNewPoem();
     fixWrapperOverflow();
@@ -749,48 +761,6 @@ function hideSettingsPoems() {
     }, 300);
 }
 
-function toggleAll1() {
-    document.getElementById('poems-checkbox-1-1').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-2').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-3').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-4').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-5').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-6').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-7').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-8').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-9').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-10').checked = poemsCheckbox1.checked
-    
-    document.getElementById('poems-checkbox-1-11').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-12').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-13').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-14').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-15').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-16').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-17').checked = poemsCheckbox1.checked
-    document.getElementById('poems-checkbox-1-18').checked = poemsCheckbox1.checked
-}
-
-function toggleAll2() {
-    document.getElementById('poems-checkbox-2-1').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-2').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-3').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-4').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-5').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-6').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-7').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-8').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-9').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-10').checked = poemsCheckbox2.checked
-    
-    document.getElementById('poems-checkbox-2-11').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-12').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-13').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-14').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-15').checked = poemsCheckbox2.checked
-    document.getElementById('poems-checkbox-2-16').checked = poemsCheckbox2.checked
-}
-
 function isOverflowing(element) {
     let overflowProperty = getComputedStyle(element).overflow;
     if (overflowProperty === 'visible') {
@@ -878,39 +848,32 @@ function toggleAll2() {
       });
 }
 
-function odietamoSelect(){
-    var selectedValue = this.value
-    if (selectedValue == "Szabo"){
-        poems[1]["verses"] = [`Gyűlölök és szeretek. Miért? Nem tudom én se, de érzem:
-így van ez, és a szívem élve keresztre feszít.`]
+function odietamoSelect(version = "Szabo") {
+    let odietamoIndex = 0;
+    odietamoIndex = poems.map(poem => sanitize(poem.title)).indexOf(sanitize("Gyűlölök és szeretek"));
+    if (odietamoIndex == -1) {
+        return;
     }
-    else if (selectedValue == "Illyes"){
-        poems[1]["verses"] = [`Gyűlölök és szeretek. Kérded tán, mért teszem én ezt?
-Mit tudom! Ezt érzem. Szenvedek, ezt tudom én.`]
+    if (!poems[odietamoIndex]["versions"][version]) {
+        return;
     }
-    else if(selectedValue == "Kerenyi"){
-        poems[1]["verses"] = [`Gyűlölök és szeretek. Hogy mért teszem ezt, ugye kérded?
-Mit tudom én. Így van: érzem és öl e kín.`]
-    }
-    else if(selectedValue == "Catullus"){
-        poems[1]["verses"] = [`Odi et amo. Quare id faciam, fortasse requiris.
-Nescio, sed fieri sentio et excrucior.`]
-    }
+    poems[odietamoIndex]["verses"] = [poems[odietamoIndex]["versions"][version]];
 }
 
-function balladaSelect(){
-    var selectedValue = this.value
-    if (selectedValue == "Agnes"){
-        poems[37]["verses"] = poems[37]["balladak"][0]
-        poems[37]["title"] = "Ágnes asszony"
-    }
-    else if (selectedValue == "VLaszlo"){
-        poems[37]["verses"] = poems[37]["balladak"][1]
-        poems[37]["title"] = "V. László"
-    }
-    else if(selectedValue == "Walesi"){
-        poems[37]["verses"] = poems[37]["balladak"][2]
-        poems[37]["title"] = "Walesi bárdok"
+function balladaSelect(ballad = "Agnes"){
+    switch (ballad) {
+        case "Agnes":
+            poems[37]["verses"] = poems[37]["balladak"][0];
+            poems[37]["title"] = "Ágnes asszony";
+            break;
+        case "VLaszlo":
+            poems[37]["verses"] = poems[37]["balladak"][1];
+            poems[37]["title"] = "V. László";
+            break;
+        case "Walesi":
+            poems[37]["verses"] = poems[37]["balladak"][2];
+            poems[37]["title"] = "Walesi bárdok";
+            break;
     }
 }
 
@@ -933,11 +896,11 @@ poemsButton.addEventListener('click', showPoems);
 darkModeButton.addEventListener('click', toggleDarkMode);
 overlay.addEventListener('click', hideSettingsPoems);
 doneButton.addEventListener('click', hideSettingsPoems);
-document.getElementById('odietamo-selector').addEventListener('change', odietamoSelect)
-document.getElementById('ballada-selector').addEventListener('change', balladaSelect)
+document.getElementById('odietamo-selector').addEventListener('change', odietamoSelect(this.value))
+document.getElementById('ballada-selector').addEventListener('change', balladaSelect(this.value))
 
-document.getElementById('poems-checkbox-1-0').addEventListener('change', toggleAll1);
-document.getElementById('poems-checkbox-2-0').addEventListener('change', toggleAll2);
+document.getElementById('poems-checkbox-idezendo').addEventListener('change', toggleAll1);
+document.getElementById('poems-checkbox-felismerendo').addEventListener('change', toggleAll2);
 
 window.addEventListener("resize", () => {
     fixWrapperOverflow();
