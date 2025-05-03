@@ -9,4 +9,6 @@ A 2024-től érvényes érettségi követelményeknek megfelelően a műveltség
 
 * A kötelező memoriterek megtanulásához jó eszközt nyújt a "hiányos szöveg típusú" feladat választása a beállítások közül: ha még nem vagyunk magabiztosak annyira egy versben, hogy fejből le tudnánk írni az egészet, megpróbálhatjuk szavanként kiegészíteni
 
-* Ha egy adott verset szeretnénk célirányosan gyakorolni, akkor vagy kiválaszthatjuk csak azt a listából, vagy használhatjuk a `?poem=` URL-paramétert is a weboldal címe után írva
+* Ha egy adott verset szeretnénk célirányosan gyakorolni, akkor vagy kiválaszthatjuk csak azt a listából, vagy használhatjuk a `?poem=` URL-paramétert is a weboldal címe után írva (ha a versszakot is meg szeretnéd határozni, a `verse=` paraméter használható ugyanígy.)
+
+* Más URL paraméterekkel is már előre személyre szabhatod beállításaidat. Mint például a `ballad=` ("Agnes", "VLaszlo" és "Walesi" a lehetséges értékek), valamint a `odietamo=` ("Illyes", "Szabo", "Kerenyi" és "Catullus" közül lehet választani), meg a `gaptext`.
